@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(25, 25, 25);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card {
+    display: inline-block;
+    margin: 5px;
+    border: 1px solid white;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.red {
+    border-color: red;
+    color: red;
+}
