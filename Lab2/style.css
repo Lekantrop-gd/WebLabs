@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(25, 25, 25);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+ol {
+    list-style-position: inside;
+}
+
+.fruits-list {
+    background-color: rgb(30, 30, 30);
+    padding: 10px;
+    border-radius: 7px;
+}
+
+li {
+    background-color: rgb(40, 40, 40);
+    margin: 10px;
+    text-align: left;
+    border-radius: 2px;
+    padding-left: 10px;
+}
+
+.list-text {
+    display: inline-block;
+    background-color: rgb(50, 50, 50);
+    padding: 10px;
+    margin-left: 5px;
+}
