@@ -39,3 +39,35 @@ li {
     padding: 10px;
     margin-left: 5px;
 }
+
+.todo-ul {
+    list-style-type: none;
+}
+
+.todo-li {
+    margin: 0px;
+    padding: 15px;
+}
+
+input {
+    cursor: pointer;
+}
+
+.cross {
+    float: right;
+    color: red;
+    cursor: pointer;
+}
+
+.todo-li:nth-child(odd) {
+    background-color: rgb(30, 30, 30);
+  }
+  
+.todo-li:nth-child(even) {
+    background-color: rgb(40, 40, 40);
+  }
+  
+.todo-li.done {
+    background-color: rgb(100, 100, 100);
+    text-decoration: line-through;
+  }

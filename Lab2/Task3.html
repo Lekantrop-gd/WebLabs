@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>To Do List</title>
+</head>
+
+<body>
+
+    <h1>To Do List</h1>
+    <ul class  = "todo-ul">
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Hit the gym <div class = "cross" onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Pay bills <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Meet John <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Buy eggs <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Read a book <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Organize office <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Eat dinner <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Buy apples <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Meet Georg <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Feed the cat <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Write a letter <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+        <li class = "todo-li"><input type="checkbox" onclick="toggleDone(event)"> Run 1 km <div class = "cross"  onclick="removeItem(event)">&#10060;</div></li>
+    </ul>
+
+</body>
+
+<script>
+    function toggleDone(event) {
+        let li = event.target.parentElement;
+        if (event.target.checked) {
+            li.classList.add("done");
+        } 
+        else {
+            li.classList.remove("done");
+        }
+    }
+
+    function removeItem(event) {
+        let li = event.target.parentElement;
+        li.remove();
+    }
+</script>
+
+</html>
