@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(25, 25, 25);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+caption {
+    font-size: 200%;
+    margin-bottom: 20px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 5px;
+    text-align: center;
+}
+
+.wide-row {
+    min-width: 300px;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.bold-framed {
+    border: 3px solid;
+}
+
+.left-dashed-framed {
+    border-left: 1px dashed;
+}
+
+.right-dashed-framed {
+    border-right: 1px dashed;
+}
