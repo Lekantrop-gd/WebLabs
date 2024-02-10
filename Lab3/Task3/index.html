@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <caption>Завдання</caption>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Created at</th>
+            <th>Size</th>
+            <th>Priority</th>
+        </tr>
+        <tr>
+            <td>#1078</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 22/01/2024</div></td>
+            <td>Development</td>
+            <td>January 22, 2024<br><div class="details">10:15</div></td>
+            <td><div class="size">Big</div></td>
+            <td><div class="priority">4</div></td>
+        </tr>
+        <tr>
+            <td>#2034</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 21/01/2024</div></td>
+            <td>Development</td>
+            <td>January 21, 2024<br><div class="details">13:30</div></td>
+            <td><div class="size">Small</div></td>
+            <td><div class="priority">3</div></td>
+        </tr>
+        <tr>
+            <td>#2165</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 20/01/2024</div></td>
+            <td>Development</td>
+            <td>January 20, 2024<br><div class="details">16:00</div></td>
+            <td><div class="size">Middle</div></td>
+            <td><div class="priority">1</div></td>
+        </tr>
+        <tr>
+            <td>#2214</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 19/01/2024</div></td>
+            <td>Development</td>
+            <td>January 19, 2024<br><div class="details">12:00</div></td>
+            <td><div class="size">Over</div></td>
+            <td><div class="priority">5</div></td>
+        </tr>
+        <tr>
+            <td>#2345</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 18/01/2024</div></td>
+            <td>Development</td>
+            <td>January 17, 2024<br><div class="details">15:00</div></td>
+            <td><div class="size">Big</div></td>
+            <td><div class="priority">4</div></td>
+        </tr>
+        <tr>
+            <td>#2456</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 17/01/2024</div></td>
+            <td>Development</td>
+            <td>January 16, 2024<br><div class="details">10:00</div></td>
+            <td><div class="size">Small</div></td>
+            <td><div class="priority">3</div></td>
+        </tr>
+        <tr>
+            <td>#2578</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 16/01/2024</div></td>
+            <td>Development</td>
+            <td>January 15, 2024<br><div class="details">9:00</div></td>
+            <td><div class="size">Big</div></td>
+            <td><div class="priority">2</div></td>
+        </tr>
+        <tr>
+            <td>#2689</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 15/01/2024</div></td>
+            <td>Development</td>
+            <td>January 14, 2024<br><div class="details">8:00</div></td>
+            <td><div class="size">Middle</div></td>
+            <td><div class="priority">1</div></td>
+        </tr>
+        <tr>
+            <td>#2790</td>
+            <td>Allow emailing within the system<br><div class="details">Updated at 14/01/2024</div></td>
+            <td>Development</td>
+            <td>January 13, 2024<br><div class="details">12:00</div></td>
+            <td><div class="size">Over</div></td>
+            <td><div class="priority">4</div></td>
+        </tr>
+    </table>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    var priorityCells = document.querySelectorAll('.priority');
+
+    priorityCells.forEach(function(cell) {
+        var priorityValue = parseInt(cell.textContent);
+
+        switch(priorityValue) {
+            case 1:
+                cell.style.backgroundColor = 'rgb(40, 40, 40)';
+                break;
+            case 2:
+                cell.style.backgroundColor = 'rgb(50, 50, 50)';
+                break;
+            case 3:
+                cell.style.backgroundColor = 'rgb(60, 60, 60)';
+                break;
+            case 4:
+                cell.style.backgroundColor = 'rgb(70, 70, 70)';
+                break;
+            case 5:
+                cell.style.backgroundColor = 'rgb(80, 80, 80)';
+                break;
+            default:
+                break;
+        }
+    });
+});
+</script>
+</html>
