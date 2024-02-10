@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(25, 25, 25);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    text-align: center;
+    max-width: 600px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.gallery-container {
+    width: 600px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.thumbnails {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    display: flex;
+}
+
+.thumbnail {
+    display: inline-block;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.thumbnail img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.thumbnail:active {
+    opacity: 1;
+}
+
+.thumbnail:target + .gallery-container .gallery-image {
+    opacity: 0;
+}
