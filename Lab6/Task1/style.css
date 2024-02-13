@@ -3,19 +3,19 @@ body {
 }
 
 .clock {
-  position: relative;
-  height: 200px;
-  width: 200px;
-  background: rgb(85,  85, 85);
-  box-sizing: border-box;
-  border-radius: 100%;
-  border: 10px solid rgb(55, 55, 55);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  margin: auto;
+    position: relative;
+    height: 200px;
+    width: 200px;
+    background: rgb(85,  85, 85);
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 10px solid rgb(55, 55, 55);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 
 .top {
