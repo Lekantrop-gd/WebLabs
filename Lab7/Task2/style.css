@@ -1,0 +1,50 @@
+body {
+  background-color: rgb(25, 25, 25);
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  display: flex;
+}
+
+h1,
+h2 {
+  font-weight: bold;
+}
+
+header {
+  background-color: rgb(35, 35, 35);
+  padding: 10px;
+}
+
+main {
+  flex: 1;
+}
+
+.content {
+  padding: 10px;
+}
+
+nav {
+  width: 800px;
+  background-color: rgb(45, 45, 45);
+  padding: 10px;
+}
+
+ul {
+  margin-left: -25px;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+footer {
+  background-color: rgb(35, 35, 35);
+  padding: 10px;
+  text-align: center;
+}
