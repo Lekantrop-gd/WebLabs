@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(25, 25, 25);
+    font-size: 140%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.gallery {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.gallery img {
+    float: left;
+    margin: 5px;
+    box-sizing: border-box;
+    width: 384px;
+    height: 216px;
+    filter: grayscale(100);
+    transition: all 0.5s;
+}
+
+.gallery img:hover {
+    filter: grayscale(0);
+    transition: all 0.5s;
+    transform: translateY(-10px);
+}
+
+@media (max-width: 1270px) {
+    .gallery {
+        width: 800px;
+    }
+}
+
+@media (max-width: 800px) {
+    .gallery {
+        width: 400px;
+    }
+}
