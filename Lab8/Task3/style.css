@@ -1,0 +1,28 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  background-color: rgb(25, 25, 25);
+}
+
+header {
+  display: flex;
+}
+
+img {
+  margin-top: auto;
+  margin-bottom: auto;
+  max-width: 50px;
+  max-height: 50px;
+}
+
+.horizontal {
+  display: flex;
+}
+
+.right {
+  margin-left: auto;
+}
+
+.left {
+  margin-right: auto;
+}
