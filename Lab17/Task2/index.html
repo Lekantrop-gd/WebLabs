@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burger Menu - Dark Theme</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .navbar {
+            background-color: #222;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-icon {
+            cursor: pointer;
+            display: none;
+            color: #fff;
+        }
+
+        .menu {
+            display: flex;
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin-right: 20px;
+        }
+
+        .menu span {
+            margin-bottom: 5px;
+            padding: 8px 10px;
+            transition: background-color 0.3s ease;
+            /* Додаємо плавну анімацію */
+        }
+
+        .menu span:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            /* Змінюємо фон при наведенні курсора */
+        }
+
+        .menu span.active {
+            background-color: rgba(255, 255, 255, 0.2);
+            /* Змінюємо фон активного елемента */
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu {
+                display: none;
+            }
+
+            .menu.show {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: #222;
+                padding: 15px 0px 15px 0px;
+            }
+
+            .menu.show span {
+                margin-bottom: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Logo</div>
+        <div class="menu-icon">&#9776;</div>
+        <div class="menu">
+            <span class="menu-option">Home</span>
+            <span class="menu-option">About</span>
+            <span class="menu-option">Services</span>
+            <span class="menu-option">Contact</span>
+        </div>
+    </nav>
+
+    <div class="content">
+        <h1>Welcome to Our Website</h1>
+        <p>This is a simple example page with a burger menu.</p>
+    </div>
+
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const menu = document.querySelector('.menu');
+
+        menuIcon.addEventListener('click', () => {
+            menu.classList.toggle('show');
+        });
+
+        const menuOptions = document.querySelectorAll('.menu-option');
+
+        menuOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                menuOptions.forEach(opt => opt.classList.remove('active'));
+                option.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+
+</html>
