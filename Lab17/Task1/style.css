@@ -1,0 +1,37 @@
+body {
+    background-color: #222;
+    color: #eee;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    background-color: #333;
+    padding: 20px;
+}
+
+.block {
+    background-color: #444;
+    border: 1px solid #555;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+h2 {
+    color: #eee;
+}
+
+p {
+    color: #aaa;
+}
+
+button {
+    background-color: #555;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #666;
+}
