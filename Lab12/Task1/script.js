@@ -1,1 +1,0 @@
-alert("Hey there! I'm Nazar");
