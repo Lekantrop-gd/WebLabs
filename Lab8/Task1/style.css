@@ -1,9 +1,9 @@
 body {
     display: flex;
     flex-direction: column;
-    background-color: #1e1e1e; /* Dark background */
-    color: #ffffff; /* Light text */
-    font-family: Arial, sans-serif; /* Optional: Change font */
+    background-color: #1e1e1e;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
 }
 
 a {
