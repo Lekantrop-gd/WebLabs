@@ -1,115 +1,66 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Верстка сторінки з display: flex</title>
-    <style>
-        .container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #f0f0f0;
-            padding: 10px 20px;
-            flex-direction: column;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .menu {
-            display: flex;
-        }
-
-        .menu li {
-            list-style: none;
-            margin-right: 20px;
-        }
-
-        .menu a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        .footer {
-            background-color: #f0f0f0;
-            padding: 10px 20px;
-            text-align: center;
-        }
-
-        .aside {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 100vh;
-            background-color: #eee;
-            padding: 20px;
-            margin-top: 20px;
-        }
-
-        .main {
-            flex: 1;
-            margin-top: 50px;
-            margin-left: 250px;
-            max-width: fit-content;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="logo">Заголовок документа</div>
+    <header>
+        <h1>Document heading</h1>
+        <nav>
+            <button>Home</button>
+            <button>About</button>
+            <button>Jobs</button>
+            <button>Blog</button>
+            <button>Contact Us</button>
+        </nav>
+    </header>
 
-            <nav class="menu">
-                <li><a href="#">Головна</a></li>
-                <li><a href="#">Про нас</a></li>
-                <li><a href="#">Вакансії</a></li>
-                <li><a href="#">Блог</a></li>
-                <li><a href="#">Контактна інформація</a></li>
-            </nav>
-        </header>
-
-        <main class="main">
-            <h2>Lorem ipsum dolor sit amet.</h2>
-
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti soluta obcaecati suscipit est porro et
-                impedit eaque, totam eius earum harum? repudiandae, voluptatem</p>
-
-            <p>Vero hic dolor culpa! Impedit quae qui quo suscipit corrupti vel quam dicta soluta doloremque.
-                Doloremque, velit quaerat asperiores exercitationeml delectus accusamus</p>
-
-            <p>Vero ducimus reprehenderit unde voluptas consequuntur id facilis quaerat ex praesentium, magni inventore,
-                veritatis repellendus accusantium? Sed quisquam in</p>
-        </main>
-
-        <aside class="aside">
-            <h2>Lorem Ipsum</h2>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec lectus eget erat pharetra congue.
-                Maecenas sit amet tortor eu libero semper auctor.</p>
+    <main>
+        <article>
+            <h1>NEW MINECRAFT WOLVES!</h1>
+            <p>One of the first things I do when I load up a new world in Minecraft is find my wolf Zero. Zero has
+                existed in every Minecraft world I’ve ever played, no matter what. Sometimes I find Zero in a tundra
+                biome. Sometimes I find them between the tall pine trees of a forest biome. But I always, always, have a
+                wolf named Zero by my side. And for many years, and countless Minecraft worlds, Zero has always looked
+                the same.</p>
+            <p>Because today eight new wolf variations are coming to testing in Minecraft: Bedrock Edition beta and
+                preview AND Minecaft: Java Edition snapshot. As always when a feature goes into testing, we’d really
+                love to hear your thoughts on the new wolf variations, so please let us know! Zero and I will also be
+                giving our feedback throughout this article with a “wolf cuteness scale” and a Zero approval rating. I
+                wonder which wolf will win? You’ll have to read all the way to the end to find out (it’s worth it, I
+                promise. I a treat there, too!) Who’s a good reader?</p>
+            <p>This familiar friend now has a brand-new name! The original wolf will now become “the pale wolf” (don’t
+                worry Zero, we’ll go straight to the desert for some sunshine). You’ll be able to find the pale wolf in
+                the taiga biome: famous for its grassland, spruce trees, and now its pale wolves!</p>
+            <p>This isn’t a wolf that’s forgotten how to wolf. No! This is the rusty wolf, which you can find hiding
+                between the jungle vines. I think a red collar is going to look very stylish with its copper-toned fur.
+            </p>
+            <p>Wolf armor absorbs all enemy damage until it breaks, protecting your wolf's hearts from those pesky
+                creeper blasts. Speaking of wolf hearts – wolf-health-parity came with the most recent Bedrock Preview
+                and Beta, meaning every wolf across both editions of Minecraft will now have 40 hearts when fully grown
+                (Bedrock wolves only had 20 previously! Perhaps I should’ve called my wolf buddy Squishy instead of
+                Zero?). Keeping your wolf armor in top condition will keep your wolf healthy while it’s adventuring by
+                your side. Wolf armor that needs repairing will show cracks, and you can repair it using armadillo
+                scutes! Which is perfect, because after you’ve gone to all that trouble to brush an armadillo, dye your
+                armor that perfect shade of magenta, and then equip it on your four-legged friend, you don’t want it to
+                break. You don’t even need to remove the armor to mend it – just apply armadillo scutes directly to
+                patch up any cracks (just like an iron golem with iron ingots!) </p>
+        </article>
+        <aside>
+            <h1>SEND US YOUR FEEDBACK!</h1>
+            <p>These features are all still in development, which means that the details outlined above might change as
+                we iterate on them. So then why have we released them into testing? Because we want your feedback!</p>
         </aside>
+    </main>
 
-        <footer class="footer">
-            &copy; 2024
-        </footer>
-    </div>
+    <footer>
+        <h1>Copyright &copy 2024</h1>
+    </footer>
 </body>
 
 </html>
