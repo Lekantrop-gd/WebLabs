@@ -66,8 +66,6 @@ article {
 .letter {
   display: flex;
   align-items: center;
-  padding: 10px;
-  height: 5%;
   width: 100%;
   border-bottom: 1px solid black;
 }
@@ -77,12 +75,13 @@ article {
 }
 
 .letter img {
-  width: 30px;
-  height: 30px;
+  width: 3vw;
+  height: 3vw;
   margin-right: 10px;
 }
 
 .content {
+  width: 60vw;
   display: flex;
   align-items: center;
 }
@@ -93,13 +92,16 @@ article {
 
 .from {
   margin-right: 5%;
+  width: 10vw;
 }
 
 .topic {
   margin-right: 5%;
+  width: 15vw;
 }
 
 .sub-text {
+  width: 25vw;
   color: grey;
   overflow: hidden;
   white-space: nowrap;
@@ -107,32 +109,20 @@ article {
 }
 
 .date {
-  margin-top: auto;
-  margin-bottom: auto;
+  width: 20vw;
+  text-align: right;
   margin-left: auto;
 }
 
-@media (max-width: 768px) {
-  .content {
-    display: block;
-  }
+.date img {
+  width: 2vw;
+  height: 2vw;
+  margin-bottom: auto;
 }
 
-@media (max-width: 600px) {
-  .category {
-    display: none;
-  }
-  
-  .tab {
-    width: 100%;
-  }
-
-  header {
-    font-size: 10px;
-  }
-
-  aside {
-    margin-right: 2%;
+@media (max-width: 1070px) {
+  body {
+    font-size: 80%;
   }
 
   .logo img {
@@ -144,14 +134,69 @@ article {
     width: 30px;
     height: 30px;
   }
+}
+
+@media (max-width: 930px) {
+  body {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: block;
+    width: 30vw;
+  }
+
+  .from {
+    width: 40vw;
+  }
+
+  .topic {
+    width: 40vw;
+  }
+
+  .content h1 {
+    margin: 0;
+  }
+
+  .sub-text {
+    width: 40vw;
+  }
+
+  .content img {
+    position: absolute;
+    margin-left: 55%;
+    margin-top: -7%;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .category {
+    display: none;
+  }
+
+  .tab img {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .tab {
+    width: 100%;
+  }
+
+  header {
+    font-size: 80%;
+  }
+
+  aside {
+    margin-right: 2%;
+  }
 
   .letter {
     font-size: 10px;
   }
 
-
-
-  .letter h1 {
-    margin: 0px;
-  }
 }
