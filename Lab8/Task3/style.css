@@ -1,28 +1,157 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: white;
-  background-color: rgb(25, 25, 25);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 header {
   display: flex;
+  width: 100%;
+  border-bottom: 2px solid black;
 }
 
-img {
-  margin-top: auto;
-  margin-bottom: auto;
-  max-width: 50px;
-  max-height: 50px;
-}
-
-.horizontal {
+.logo {
+  margin-right: auto;
   display: flex;
+  align-items: center;
 }
 
-.right {
+.logo img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.user {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.user img {
+  width: 50px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+main {
+  display: flex;
+  width: 100%;
+  margin-top: 20px;
+}
+
+aside {
+  margin-right: 2%;
+  margin-left: 20px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  width: 110%;
+}
+
+.tab:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.tab img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+article {
+  width: 80%;
+}
+
+.letter {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  height: 5%;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
+
+.letter:hover {
+  background-color: rgb(230, 230, 230);
+}
+
+.letter img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.content img {
   margin-left: auto;
 }
 
-.left {
-  margin-right: auto;
+.from {
+  margin-right: 5%;
+}
+
+.topic {
+  margin-right: 5%;
+}
+
+.sub-text {
+  color: grey;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.date {
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+}
+
+@media (max-width: 768px) {
+  .content {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+  .category {
+    display: none;
+  }
+  
+  .tab {
+    width: 100%;
+  }
+
+  header {
+    font-size: 10px;
+  }
+
+  aside {
+    margin-right: 2%;
+  }
+
+  .logo img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .user img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .letter {
+    font-size: 10px;
+  }
+
+
+
+  .letter h1 {
+    margin: 0px;
+  }
 }
