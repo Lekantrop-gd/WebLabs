@@ -1,0 +1,133 @@
+body {
+    background-color: rgb(20, 20, 20);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.gallery {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: 200px;
+    grid-auto-flow: dense;
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 0 10px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1vw;
+}
+
+.text {
+    width: 100%;
+    text-align: right;
+    margin-top: -50px;
+    margin-left: -10px;
+}
+
+.tennis {
+    grid-area: 1 / 1 / 1 / 1;
+}
+
+.yoga {
+    grid-area: 2 / 1 / 2 / 1;
+}
+
+.hikking {
+    grid-area: 1 / 2 / 3 / 4;
+}
+
+.running {
+    grid-area: 1 / 4 / 1 / 4;
+}
+
+.cycling {
+    grid-area: 1 / 5 / 1 / 5;
+}
+
+.swimming {
+    grid-area: 2 / 4 / 2 / 6;
+}
+
+@media (max-width: 1024px) {
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        grid-auto-rows: 170px;
+    }
+
+    .tennis {
+        grid-area: 1 / 1 / 3 / 3;
+    }
+
+    .yoga {
+        grid-area: 3 / 1 / 3 / 1;
+    }
+
+    .hikking {
+        grid-area: 3 / 3 / 1 / 3;
+    }
+
+    .running {
+        grid-area: 1 / 4 / 1 / 6;
+    }
+    
+    .cycling {
+        grid-area: 2 / 4 / 4 / 6;
+    }
+
+    .swimming {
+        grid-area: 3 / 2 / 3 / 4;
+    }
+}
+
+@media (max-width: 786px) {
+    .yoga {
+        grid-area: 4 / 1 / 4 / 3;
+    }
+
+    .hikking {
+        grid-area: 1 / 3 / 1 / 5;
+    }
+
+    .running {
+        grid-area: 3 / 1 / 3 / 3;
+    }
+    
+    .cycling {
+        grid-area: 2 / 3 / 4 / 5;
+    }
+
+    .swimming {
+        grid-area: 4 / 3 / 4 / 5;
+    }
+}
+
+@media (max-width: 610px) {
+    .tennis {
+        grid-area: 1 / 1 / 1 / 3;
+    }
+
+    .hikking {
+        grid-area: 2 / 1 / 2 / 3;
+    }
+
+    .running {
+        grid-area: 3 / 1 / 3 / 3;
+    }
+    
+    .cycling {
+        grid-area: 4 / 1 / 4 / 3;
+    }
+
+    .yoga {
+        grid-area: 5 / 1 / 5 / 3;
+    }
+
+    .swimming {
+        grid-area: 6 / 1 / 6 / 3;
+    }
+}
