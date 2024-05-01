@@ -1,0 +1,55 @@
+body {
+    background-color: rgb(40, 40, 40);
+}
+
+form {
+    width: 60vw;
+    margin: auto;
+    margin-top: 10vw;
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border-left: 30px solid rgb(20, 20, 20);
+    padding: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.title {
+    background-color: orange;
+    padding: 10px;
+    margin-left: -69px;
+    margin-right: 400px;
+}
+
+.data {
+    display: flex;
+    justify-content: space-between;
+    width: 38vw;
+}
+
+.data input {
+    margin-top: auto;
+}
+
+input {
+    background-color: rgb(35, 35, 35);
+    color: white;
+    padding: 7px;
+    border: 0;
+    margin-top: 10px;
+    border-bottom: 3px solid rgb(25, 25, 25);
+    border-radius: 2px;
+    min-height: 4vh;
+}
+
+.inputs {
+    display: flex;
+    justify-content: space-between;
+    width: 24vw;
+}
+
+img {
+    width: 20%;
+    position: absolute;
+    margin-left: 43vw;
+    margin-top: -35vh;
+}
