@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="registration">
+        <div class="section registration">
+            <h1>Registration form</h1>
+            <div class="input username">
+                <img src="img/username.png" alt="">
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div class="input email">
+                <img src="img/email.png" alt="">
+                <input type="email" name="email" placeholder="Email adress">
+            </div>
+            <div class="input password">
+                <img src="img/pswd.png" alt="">
+                <div class="passwords">
+                    <input class="password-input" type="password" placeholder="Password">
+                    <input type="password" placeholder="Confirm password">
+                </div>
+            </div>
+        </div>
+        <div class="section details">
+            <h1>Personal details</h1>
+            <div class="personal-details">
+                <input class="personal-detail" type="text" placeholder="First name">
+                <input class="personal-detail" type="text" placeholder="Last name">
+                <select class="personal-detail" name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <input class="personal-detail" type="date">
+            </div>
+        </div>
+        <div class="section agreements">
+            <div class="agreement">
+                <input id="news" type="checkbox">
+                <label for="news">I want to recieve news and special offers</label>
+            </div>
+            <div class="agreement">
+                <input id="terms" type="checkbox">
+                <label for="terms">I agree with the Terms and Conditions</label>
+            </div>
+        </div>
+        <hr>
+        <input type="submit">
+    </form>
+</body>
+</html>
