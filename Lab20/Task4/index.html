@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Website</h1>
+        <button onclick="showForm()">Create product</button>
+    </header>
+
+    <div class="modal">
+        <div id="overlay" onclick="hideForm()"></div>
+        <form name="registration">
+            <div class="head">
+                <h1 class="title">Product option</h1>
+                <button onclick="hideForm()">&times;</button>
+            </div>
+            <hr>
+            <div class="content">
+                <label for="nickname">Your nickname:</label> <br>
+                <input type="text" id="nickname" required> <br>
+
+                <br>
+
+                <label for="email">Your email:</label> <br>
+                <input type="email" id="email" required> <br>
+
+                <br>
+
+                <label for="password">Create a strong password:</label> <br>
+                <input type="password" id="password" required> <br>
+
+                <br>
+
+                <label for="password-confirmation">Repeat your password:</label> <br>
+                <input type="password" id="password-confirmation" required> <br>
+
+                <br>
+                <hr>
+                <br>
+            </div>
+            <div class="button-block">
+                <input type="submit" value="Save Product">
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
