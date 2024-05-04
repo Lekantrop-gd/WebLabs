@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Website</h1>
+        <button onclick="showForm()">Create product</button>
+    </header>
+
+    <div class="modal" onclick="hideForm()">
+        <form name="new-product-form">
+            <div class="head">
+                <h1 class="title">Product option</h1>
+                <button onclick="hideForm()">&times;</button>
+            </div>
+            <hr>
+            <div class="content">
+                <label for="title">Title:</label> <br>
+                <input type="text" id="title" required> <br>
+
+                <br>
+
+                <label for="description">Description:</label> <br>
+                <textarea id="description" required></textarea> <br>
+
+                <br>
+
+                <label for="price">Price:</label> <br>
+                <input type="number" id="price" min="0" step="0.01" required> <br>
+
+                <br>
+
+                <label for="discount">Discount:</label> <br>
+                <input type="number" id="discount" min="0" max="100" step="1" required> <br>
+
+                <br>
+
+                <label for="in-stock">In stock:</label> <br>
+                <input type="number" id="in-stock" min="0" step="1"></input> <br>
+
+                <br>
+
+                <label for="brand">Brand:</label> <br>
+                <input type="text" id="brand"></input> <br>
+
+                <br>
+
+                <label for="category">Category: </label> <br>
+                <select name="category" id="category" required>
+                    <option value="cellphones">Cellphones</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="parfumes">Parfumes</option>
+                    <option value="and-others">And others</option>
+                </select>
+
+                <br>
+                <br>
+
+                <label for="picture">Link to picture:</label> <br>
+                <input type="text" id="picture" required>
+
+                <br>
+                <br>
+                <hr>
+                <br>
+            </div>
+            <div class="button-block">
+                <input type="submit" value="Save Product">
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
