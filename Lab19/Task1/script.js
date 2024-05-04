@@ -2,10 +2,12 @@ const products = [];
 
 function showForm() {
     document.forms["new-product-form"].style.display = "block";
+    document.getElementById("overlay").style.display = "block"
 }
 
 function hideForm() {
     document.forms["new-product-form"].style.display = "none";
+    document.getElementById("overlay").style.display = "none"
 }
 
 document.forms["new-product-form"].addEventListener('submit', function (event) {
