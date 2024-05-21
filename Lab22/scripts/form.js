@@ -40,7 +40,7 @@ function showForm() {
 
 function hideForm() {
     document.getElementById("modal").style.display = "none";
-    
+
     var oldElement = document.forms["new-product-form"];
     var newElement = oldElement.cloneNode(true);
     oldElement.parentNode.replaceChild(newElement, oldElement);
@@ -49,7 +49,7 @@ function hideForm() {
 function createProduct() {
     showForm();
 
-    document.forms["new-product-form"].addEventListener('submit', function(event) {
+    document.forms["new-product-form"].addEventListener('submit', function (event) {
         event.preventDefault();
 
         addProduct();

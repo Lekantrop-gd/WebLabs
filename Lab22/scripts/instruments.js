@@ -1,46 +1,53 @@
-function filterByCategory(event) {
-    const selectedCategory = event.target.value;
-    if (!selectedCategory || selectedCategory === "all-categories") {
-        displayProducts(products);
-    } 
-    else {
-        displayProducts(products.filter(product => product.category === selectedCategory));
-    }
+async function filterByCategory(category) {
+    const filteredProducts = category && category !== "all-categories"
+        ? products.filter(product => product.category === category)
+        : products;
+    return filteredProducts;
 }
 
-function searchProducts(event) {
-    console.log(123);
-    const searchTerm = event.target.value;
-    if (!searchTerm) {
-        displayProducts(products);
-    } 
-    else {
-        const lowercasedTerm = searchTerm.toLowerCase();
-        displayProducts(products.filter(product =>
+async function searchProducts(products, term) {
+    const lowercasedTerm = term.toLowerCase();
+    const searchedProducts = term
+        ? products.filter(product =>
             product.title.toLowerCase().includes(lowercasedTerm) ||
             product.description.toLowerCase().includes(lowercasedTerm)
-        ));
-    }
+        )
+        : products;
+    return searchedProducts;
 }
 
-function sortProducts(event) {
-    const key = event.target.value;
+async function sortProducts(products, key) {
     const sortedProducts = [...products];
     if (key === 'price-increase') {
         sortedProducts.sort((a, b) => a.price - b.price);
-    } 
-    else if (key === 'price-decrease') {
+    } else if (key === 'price-decrease') {
         sortedProducts.sort((a, b) => b.price - a.price);
-    } 
-    else if (key === 'newest-first') {
+    } else if (key === 'newest-first') {
         sortedProducts.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
-    } 
-    else if (key === 'oldest-first') {
+    } else if (key === 'oldest-first') {
         sortedProducts.sort((a, b) => new Date(a.dateAdded) - new Date(b.dateAdded));
     }
-    displayProducts(sortedProducts);
+    return sortedProducts;
 }
 
-document.getElementById('category').onchange = filterByCategory;
-document.getElementById('search').oninput = searchProducts;
-document.getElementById('sort').onchange = sortProducts;
+async function filterSearchAndSort(category, term, key) {
+    try {
+        const filteredProducts = await filterByCategory(category);
+        const searchedProducts = await searchProducts(filteredProducts, term);
+        const finalProducts = await sortProducts(searchedProducts, key);
+        displayProducts(finalProducts);
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+function handleCategoryChange() {
+    const selectedCategory = document.getElementById('category-filter').value;
+    const searchTerm = document.getElementById('search-filter').value;
+    const sortKey = document.getElementById('sort-filter').value;
+    filterSearchAndSort(selectedCategory, searchTerm, sortKey);
+}
+
+document.getElementById('category-filter').onchange = handleCategoryChange;
+document.getElementById('search-filter').oninput = handleCategoryChange;
+document.getElementById('sort-filter').onchange = handleCategoryChange;
