@@ -15,8 +15,8 @@
     <header>
         <h1>Website</h1>
 
-        <form name="instruments-form" action="GET">
-            <select name="" id="">
+        <form name="instruments-form">
+            <select name="" id="category">
                 <option value="all-categories">All categories</option>
                 <option value="smartphones">Smartphones</option>
                 <option value="laptops">Laptops</option>
@@ -26,12 +26,12 @@
                 <option value="home-decoration">Home decoration</option>
             </select>
             
-            <input type="text" placeholder="I'm searching for...">
+            <input id="search" type="text" placeholder="I'm searching for...">
 
-            <select name="" id="">
+            <select name="" id="sort">
                 <option value="dont-sort">Don't sort</option>
                 <option value="price-increase">Price increase</option>
-                <option value="Price-decrease">Price decrease</option>
+                <option value="price-decrease">Price decrease</option>
                 <option value="newest-first">Newest first</option>
                 <option value="oldest-first">oldest first</option>
             </select>
@@ -86,9 +86,12 @@
                 <label for="category">Category: </label> <br>
                 <select name="category" id="category" required>
                     <option value="no-category">No category</option>
-                    <option value="cellphones">Cellphones</option>
+                    <option value="smartphones">Smartphones</option>
                     <option value="laptops">Laptops</option>
-                    <option value="parfumes">Parfumes</option>
+                    <option value="fragrances">Fragrances</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="home-decoration">Home decoration</option>
                 </select>
 
                 <br>
@@ -113,6 +116,7 @@
     <script src="./scripts/card-renderer.js"></script>
     <script src="./scripts/form.js"></script>
     <script src="./scripts/products-manager.js"></script>
+    <script src="./scripts/instruments.js"></script>
 </body>
 
 </html>
