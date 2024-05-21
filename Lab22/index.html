@@ -6,12 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/page.css">
     <link rel="stylesheet" href="styles/product-card.css">
+    <link rel="stylesheet" href="styles/product-form.css">
+    <link rel="stylesheet" href="styles/instruments-form.css">
     <title>Document</title>
 </head>
 
 <body>
     <header>
         <h1>Website</h1>
+
+        <form name="instruments-form" action="GET">
+            <select name="" id="">
+                <option value="all-categories">All categories</option>
+                <option value="smartphones">Smartphones</option>
+                <option value="laptops">Laptops</option>
+                <option value="fragrances">Fragrances</option>
+                <option value="skincare">Skincare</option>
+                <option value="groceries">Groceries</option>
+                <option value="home-decoration">Home decoration</option>
+            </select>
+            
+            <input type="text" placeholder="I'm searching for...">
+
+            <select name="" id="">
+                <option value="dont-sort">Don't sort</option>
+                <option value="price-increase">Price increase</option>
+                <option value="Price-decrease">Price decrease</option>
+                <option value="newest-first">Newest first</option>
+                <option value="oldest-first">oldest first</option>
+            </select>
+        </form>
+
         <button onclick="createProduct()">Create product</button>
     </header>
 
@@ -60,10 +85,10 @@
 
                 <label for="category">Category: </label> <br>
                 <select name="category" id="category" required>
+                    <option value="no-category">No category</option>
                     <option value="cellphones">Cellphones</option>
                     <option value="laptops">Laptops</option>
                     <option value="parfumes">Parfumes</option>
-                    <option value="and-others">And others</option>
                 </select>
 
                 <br>
