@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkbox</title>
+</head>
+
+<body>
+    <input type="checkbox" name="checkbox1"> Checkbox 1<br>
+    <input type="checkbox" name="checkbox2"> Checkbox 2<br>
+    <input type="checkbox" name="checkbox3"> Checkbox 3<br>
+    <input type="checkbox" name="checkbox4"> Checkbox 4<br>
+    <input type="checkbox" name="checkbox5"> Checkbox 5<br>
+    <input type="checkbox" name="checkbox6"> Checkbox 6<br>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[type="checkbox"]').change(function () {
+                let checkedCount = $('input[type="checkbox"]:checked').length;
+
+                if (checkedCount >= 3) {
+                    $('input[type="checkbox"]').prop('disabled', true);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
