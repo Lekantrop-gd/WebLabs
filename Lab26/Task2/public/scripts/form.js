@@ -46,12 +46,77 @@ function hideForm() {
     oldElement.parentNode.replaceChild(newElement, oldElement);
 }
 
-function createProduct() {
+async function createProduct() {
     showForm();
 
-    document.forms["new-product-form"].addEventListener('submit', function (event) {
+    document.forms["new-product-form"].addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        addProduct();
+        const product = getProductFromForm();
+        const response = await fetch('/product/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        });
+
+        const result = await response.json();
+        addProductToLocal(result);
+
+        hideForm();
     });
+}
+
+async function updateProduct(productId) {
+    const updatedProduct = getProductFromForm();
+    const response = await fetch(`/product/${productId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ price: updatedProduct.price })
+    });
+    
+    const result = await response.json();
+    updateProductInLocal(productId, result);
+    
+    hideForm();
+}
+
+async function deleteProduct(productId) {
+    if (confirm("Are you sure you want to delete this product?") == false) {
+        return;
+    }
+
+    const response = await fetch(`/product/${productId}`, {
+        method: 'DELETE'
+    });
+    
+    const result = await response.json();
+    deleteProductFromLocal(productId);
+}
+
+function addProductToLocal(product) {
+    products.push(product);
+    localStorage.setItem('products', JSON.stringify(products));
+    
+    refreshProducts();
+}
+
+function updateProductInLocal(productId, updatedProduct) {
+    const index = products.findIndex(product => product.id === productId);
+    
+    if (index !== -1) {
+        products[index] = updatedProduct;
+        localStorage.setItem('products', JSON.stringify(products));
+        refreshProducts();
+    }
+}
+
+function deleteProductFromLocal(productId) {
+    products = products.filter(p => p.id !== productId);
+    
+    localStorage.setItem('products', JSON.stringify(products));
+    refreshProducts();
 }

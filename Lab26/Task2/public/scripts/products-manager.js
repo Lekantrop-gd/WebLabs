@@ -2,6 +2,16 @@ var products = [];
 
 document.addEventListener('DOMContentLoaded', refreshProducts());
 
+async function fetchProducts() {
+    document.getElementById('start-button').style.display = 'none';
+
+    const response = await fetch('/product/list');
+    const data = await response.json();
+
+    localStorage.setItem('products', JSON.stringify(data));
+    refreshProducts();
+}
+
 function refreshProducts() {
     if (localStorage.getItem('products')) {
         products = JSON.parse(localStorage.getItem('products'));
@@ -11,16 +21,6 @@ function refreshProducts() {
     else {
         document.getElementById('start-button').style.display = 'block';
     }
-}
-
-async function fetchProducts() {
-    document.getElementById('start-button').style.display = 'none';
-    
-    const response = await fetch('https://dummyjson.com/products?limit=100&skip=0');
-    const data = await response.json();
-    
-    localStorage.setItem('products', JSON.stringify(data.products));
-    refreshProducts();
 }
 
 function displayProducts(products) {
@@ -41,9 +41,9 @@ function addProduct() {
     hideForm();
 }
 
-function editProduct(productTitle) {
+function editProduct(productId) {
     for (var x = 0; x < products.length; x++) {
-        if (products[x].title == productTitle) {
+        if (products[x].id == productId) {
             showForm();
             displayProduct(products[x]);
 
@@ -76,13 +76,13 @@ function updateProduct(product) {
     hideForm();
 }
 
-function deleteProduct(productTitle) {
-    if (confirm("Are you sure you want to delete " + productTitle + "?") == false) {
+function deleteProduct(productId) {
+    if (confirm("Are you sure you want to delete this product?") == false) {
         return;
     }
 
     for (var x = 0; x < products.length; x++) {
-        if (products[x].title == productTitle) {
+        if (products[x].id == productId) {
             products.splice(products.indexOf(products[x]), 1);
             localStorage.setItem('products', JSON.stringify(products));
             refreshProducts();
