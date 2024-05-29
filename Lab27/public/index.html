@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/page.css">
+    <link rel="stylesheet" href="styles/product-card.css">
+    <link rel="stylesheet" href="styles/product-form.css">
+    <link rel="stylesheet" href="styles/instruments-form.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <h1>Website</h1>
+
+        <form name="instruments-form">
+            <select name="" id="category-filter">
+                <option value="all-categories">All categories</option>
+                <option value="smartphones">Smartphones</option>
+                <option value="laptops">Laptops</option>
+                <option value="fragrances">Fragrances</option>
+                <option value="skincare">Skincare</option>
+                <option value="groceries">Groceries</option>
+                <option value="home-decoration">Home decoration</option>
+            </select>
+
+            <input id="search-filter" type="text" placeholder="I'm searching for...">
+
+            <select name="" id="sort-filter">
+                <option value="dont-sort">Don't sort</option>
+                <option value="price-increase">Price increase</option>
+                <option value="price-decrease">Price decrease</option>
+                <option value="newest-first">Newest first</option>
+                <option value="oldest-first">oldest first</option>
+            </select>
+        </form>
+
+        <button onclick="createProduct()">Create product</button>
+    </header>
+
+    <section style="display: flex; justify-content: center;">
+        <button onclick="fetchProducts()" style="display: none;" id="start-button">Start</button>
+    </section>
+
+    <main>
+        <div id="product-container"></div>
+    </main>
+
+    <div class="modal" id="modal">
+        <div class="background" onclick="hideForm()"></div>
+        <form name="new-product-form" method="GET">
+            <div class="head">
+                <h1 class="title">Product option</h1>
+                <button onclick="hideForm()">&times;</button>
+            </div>
+            <hr>
+            <div class="content">
+                <label for="title">Title:</label> <br>
+                <input type="text" id="title" required> <br>
+
+                <br>
+
+                <label for="description">Description:</label> <br>
+                <textarea id="description" required></textarea> <br>
+
+                <br>
+
+                <label for="price">Price:</label> <br>
+                <input type="number" id="price" min="0" step="0.01" required> <br>
+
+                <br>
+
+                <label for="discount">Discount:</label> <br>
+                <input type="number" id="discount" min="0" max="100" step="1" required> <br>
+
+                <br>
+
+                <label for="in-stock">In stock:</label> <br>
+                <input type="number" id="in-stock" min="0" step="1"></input> <br>
+
+                <br>
+
+                <label for="brand">Brand:</label> <br>
+                <input type="text" id="brand"></input> <br>
+
+                <br>
+
+                <label for="category">Category: </label> <br>
+                <select name="category" id="category" required>
+                    <option value="no-category">No category</option>
+                    <option value="smartphones">Smartphones</option>
+                    <option value="laptops">Laptops</option>
+                    <option value="fragrances">Fragrances</option>
+                    <option value="skincare">Skincare</option>
+                    <option value="groceries">Groceries</option>
+                    <option value="home-decoration">Home decoration</option>
+                </select>
+
+                <br>
+                <br>
+
+                <label for="picture">Link to picture:</label> <br>
+                <input type="text" id="picture" required>
+
+                <br>
+                <br>
+                <hr>
+                <br>
+            </div>
+            <div class="button-block">
+                <input id="save" type="submit" value="Save">
+                <br>
+                <br>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./scripts/card-renderer.js"></script>
+    <script src="./scripts/form.js"></script>
+    <script src="./scripts/products-manager.js"></script>
+    <script src="./scripts/instruments.js"></script>
+</body>
+
+</html>

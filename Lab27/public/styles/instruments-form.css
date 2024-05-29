@@ -1,0 +1,17 @@
+form[name="instruments-form"] {
+    width: 500px;
+    display: flex;
+    justify-content: center;
+
+}
+
+form[name="instruments-form"] input,
+form[name="instruments-form"] select {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    border-radius: 5px;
+    border: 2px solid rgb(60, 60, 60);
+    width: max-content;
+    margin: 10px;
+    padding: 7px;
+}
