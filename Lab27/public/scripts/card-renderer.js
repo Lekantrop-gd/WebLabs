@@ -1,4 +1,4 @@
-function renderProductCard(product) {
+function renderProductCard(product, adminRights) {
     var $card = $('<div>').addClass('product-card');
 
     var $discount = $('<p>').addClass('product-discount').text(product.discountPercentage + '%');
@@ -26,10 +26,12 @@ function renderProductCard(product) {
     $footer.append($buttons);
 
     var $cart = $('<div>').addClass('product-cart').attr('onclick', `editProduct('${product._id}')`);
-    $buttons.append($cart);
-
     var $bin = $('<div>').addClass('product-bin').attr('onclick', `deleteProduct('${product._id}')`);
-    $buttons.append($bin);
+
+    if (adminRights) {
+        $buttons.append($cart);
+        $buttons.append($bin);
+    }
 
     return $card.get(0);
 }

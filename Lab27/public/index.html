@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/product-card.css">
     <link rel="stylesheet" href="styles/product-form.css">
     <link rel="stylesheet" href="styles/instruments-form.css">
+    <link rel="stylesheet" href="styles/login.css">
     <title>Document</title>
 </head>
 
@@ -37,13 +38,9 @@
             </select>
         </form>
 
-        <button onclick="createProduct()">Create product</button>
+        <button id="create-product" onclick="createProduct()">Create product</button>
     </header>
-
-    <section style="display: flex; justify-content: center;">
-        <button onclick="fetchProducts()" style="display: none;" id="start-button">Start</button>
-    </section>
-
+    
     <main>
         <div id="product-container"></div>
     </main>
@@ -117,9 +114,27 @@
         </form>
     </div>
 
+    <button onclick="login()" class="login-button">🚪</button>
+
+    <div id="login" class="login">
+        <div onclick="hideLoginForm()" class="login-background"></div>
+        <form class="login-form" name="login-form">
+            <h1>Log in</h1>
+
+            <label for="username">Your username</label>
+            <input type="text" name="username" id="username">
+
+            <label for="password">Your password</label>
+            <input type="password" name="password" id="password">
+
+            <input type="submit">
+        </form>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="./scripts/card-renderer.js"></script>
     <script src="./scripts/form.js"></script>
+    <script src="./scripts/login-form.js"></script>
     <script src="./scripts/products-manager.js"></script>
     <script src="./scripts/instruments.js"></script>
 </body>

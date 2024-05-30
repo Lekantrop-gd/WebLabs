@@ -7,11 +7,26 @@ async function fetchProducts() {
     refreshProducts(data);
 }
 
-function refreshProducts(products) {
+async function refreshProducts(products) {
     var productContainer = document.getElementById('product-container');
     productContainer.innerHTML = "";
 
-    products.forEach(function (product) {
-        productContainer.appendChild(renderProductCard(product));
+    var isAdmin = false;
+    const user = localStorage.getItem("user");
+    if (user) {
+        const response = await fetch(`/auth/check/${user}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        isAdmin = await response.json();
+    }
+
+    document.getElementById('create-product').style.display = isAdmin ? "block" : "none";
+
+    products.forEach(async function (product) {
+        productContainer.appendChild(renderProductCard(product, isAdmin));
     });
 }

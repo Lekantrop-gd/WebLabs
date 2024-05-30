@@ -1,28 +1,33 @@
-async function filterByCategory(category) {
-    const response = await fetch('/product/list');
+let currentFetchController = null;
+
+async function fetchProducts() {
+    if (currentFetchController) {
+        currentFetchController.abort();
+    }
+    currentFetchController = new AbortController();
+    const response = await fetch('/product/list', { signal: currentFetchController.signal });
     const data = await response.json();
-    
-    const filteredProducts = category && category !== "all-categories"
-        ? data.filter(product => product.category === category)
-        : data;
-    return filteredProducts;
+    currentFetchController = null;
+    return data;
 }
 
-async function searchProducts(products, term) {
-    const response = await fetch('/product/list');
-    const data = await response.json();
+function filterByCategory(products, category) {
+    return category && category !== "all-categories"
+        ? products.filter(product => product.category === category)
+        : products;
+}
 
+function searchProducts(products, term) {
     const lowercasedTerm = term.toLowerCase();
-    const searchedProducts = term
-        ? data.filter(product =>
+    return term
+        ? products.filter(product =>
             product.title.toLowerCase().includes(lowercasedTerm) ||
             product.description.toLowerCase().includes(lowercasedTerm)
         )
-        : data;
-    return searchedProducts;
+        : products;
 }
 
-async function sortProducts(products, key) {
+function sortProducts(products, key) {
     const sortedProducts = [...products];
     if (key === 'price-increase') {
         sortedProducts.sort((a, b) => a.price - b.price);
@@ -38,12 +43,15 @@ async function sortProducts(products, key) {
 
 async function filterSearchAndSort(category, term, key) {
     try {
-        const filteredProducts = await filterByCategory(category);
-        const searchedProducts = await searchProducts(filteredProducts, term);
-        const finalProducts = await sortProducts(searchedProducts, key);
+        const products = await fetchProducts();
+        const filteredProducts = filterByCategory(products, category);
+        const searchedProducts = searchProducts(filteredProducts, term);
+        const finalProducts = sortProducts(searchedProducts, key);
         refreshProducts(finalProducts);
     } catch (error) {
-        console.error(error);
+        if (error.name !== 'AbortError') {
+            console.error(error);
+        }
     }
 }
 
