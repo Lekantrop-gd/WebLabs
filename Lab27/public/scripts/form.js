@@ -1,4 +1,17 @@
-function getProductFromForm() {
+function showForm() {
+    document.getElementById("modal").style.display = "flex";
+    document.forms["new-product-form"].reset();
+}
+
+function hideForm() {
+    document.getElementById("modal").style.display = "none";
+
+    var oldElement = document.forms["new-product-form"];
+    var newElement = oldElement.cloneNode(true);
+    oldElement.parentNode.replaceChild(newElement, oldElement);
+}
+
+function getProduct() {
     const productTitle = document.getElementById('title').value;
     const productDescription = document.getElementById('description').value;
     const productPrice = parseFloat(document.getElementById('price').value);
@@ -33,27 +46,14 @@ function displayProduct(product) {
     document.getElementById('picture').value = product.thumbnail;
 }
 
-function showForm() {
-    document.getElementById("modal").style.display = "flex";
-    document.forms["new-product-form"].reset();
-}
-
-function hideForm() {
-    document.getElementById("modal").style.display = "none";
-
-    var oldElement = document.forms["new-product-form"];
-    var newElement = oldElement.cloneNode(true);
-    oldElement.parentNode.replaceChild(newElement, oldElement);
-}
-
 async function createProduct() {
     showForm();
 
     document.forms["new-product-form"].addEventListener('submit', async function (event) {
         event.preventDefault();
 
-        const product = getProductFromForm();
-        const response = await fetch('/product/create', {
+        const product = getProduct();
+        await fetch('/product/create', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -61,27 +61,39 @@ async function createProduct() {
             body: JSON.stringify(product)
         });
 
-        const result = await response.json();
-        addProductToLocal(result);
-
+        fetchProducts();
         hideForm();
     });
 }
 
-async function updateProduct(productId) {
-    const updatedProduct = getProductFromForm();
-    const response = await fetch(`/product/${productId}`, {
-        method: 'PUT',
+async function editProduct(productId) {
+    showForm();
+
+    const response = await fetch(`/product/find/${productId}`, {
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ price: updatedProduct.price })
+        }
     });
     
-    const result = await response.json();
-    updateProductInLocal(productId, result);
-    
-    hideForm();
+    const data = await response.json();
+
+    displayProduct(data);
+
+    document.forms["new-product-form"].addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        await fetch(`/product/${productId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify( getProduct() )
+        });
+
+        fetchProducts();
+        hideForm();
+    });
 }
 
 async function deleteProduct(productId) {
@@ -89,34 +101,10 @@ async function deleteProduct(productId) {
         return;
     }
 
-    const response = await fetch(`/product/${productId}`, {
+    await fetch(`/product/${productId}`, {
         method: 'DELETE'
     });
-    
-    const result = await response.json();
-    deleteProductFromLocal(productId);
-}
 
-function addProductToLocal(product) {
-    products.push(product);
-    localStorage.setItem('products', JSON.stringify(products));
-    
-    refreshProducts();
-}
-
-function updateProductInLocal(productId, updatedProduct) {
-    const index = products.findIndex(product => product.id === productId);
-    
-    if (index !== -1) {
-        products[index] = updatedProduct;
-        localStorage.setItem('products', JSON.stringify(products));
-        refreshProducts();
-    }
-}
-
-function deleteProductFromLocal(productId) {
-    products = products.filter(p => p.id !== productId);
-    
-    localStorage.setItem('products', JSON.stringify(products));
-    refreshProducts();
+    fetchProducts();
+    hideForm();
 }

@@ -25,10 +25,10 @@ function renderProductCard(product) {
     var $buttons = $('<div>').addClass('product-buttons');
     $footer.append($buttons);
 
-    var $cart = $('<div>').addClass('product-cart').attr('onclick', `editProduct('${product.id}')`);
+    var $cart = $('<div>').addClass('product-cart').attr('onclick', `editProduct('${product._id}')`);
     $buttons.append($cart);
 
-    var $bin = $('<div>').addClass('product-bin').attr('onclick', `deleteProduct('${product.id}')`);
+    var $bin = $('<div>').addClass('product-bin').attr('onclick', `deleteProduct('${product._id}')`);
     $buttons.append($bin);
 
     return $card.get(0);

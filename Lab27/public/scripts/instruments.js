@@ -1,18 +1,24 @@
 async function filterByCategory(category) {
+    const response = await fetch('/product/list');
+    const data = await response.json();
+    
     const filteredProducts = category && category !== "all-categories"
-        ? products.filter(product => product.category === category)
-        : products;
+        ? data.filter(product => product.category === category)
+        : data;
     return filteredProducts;
 }
 
 async function searchProducts(products, term) {
+    const response = await fetch('/product/list');
+    const data = await response.json();
+
     const lowercasedTerm = term.toLowerCase();
     const searchedProducts = term
-        ? products.filter(product =>
+        ? data.filter(product =>
             product.title.toLowerCase().includes(lowercasedTerm) ||
             product.description.toLowerCase().includes(lowercasedTerm)
         )
-        : products;
+        : data;
     return searchedProducts;
 }
 
@@ -35,7 +41,7 @@ async function filterSearchAndSort(category, term, key) {
         const filteredProducts = await filterByCategory(category);
         const searchedProducts = await searchProducts(filteredProducts, term);
         const finalProducts = await sortProducts(searchedProducts, key);
-        displayProducts(finalProducts);
+        refreshProducts(finalProducts);
     } catch (error) {
         console.error(error);
     }
