@@ -33,7 +33,7 @@
 .room-card .room-type {
     font-size: 100%;
     margin-top: -4vh;
-}   
+}
 
 .room-card .places img {
     width: 2vw;
@@ -45,14 +45,14 @@
     height: 2vw;
 }
 
-.top {
+.room-card .top {
     height: 40%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.bottom {
+.room-card .bottom {
     height: 40%;
     display: flex;
     align-items: center;
