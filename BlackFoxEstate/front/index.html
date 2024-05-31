@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/scroll.css">
+    <title>Black Fox Estate</title>
+</head>
+
+<body>
+    <!-- <header>
+        <h1 id="user-greet"></h1>
+        <h1 id="login-button">Join</h1>
+    </header> -->
+    <section class="start-screen">
+        <div class="start-image">
+            <img src="images/fox.png" alt="big-fox">
+        </div>
+        <div class="start-text">
+            <h1>Black Fox<br>Estate</h1>
+        </div>
+    </section>
+    <form name="instruments-form">
+        <h1>Find your best burrow</h1>
+        <span class="instruments">
+            <select name="room-type" id="room-type">
+                <option value="standart">Standart</option>
+                <option value="family">Family</option>
+                <option value="executive">Executive</option>
+                <option value="presidential">Presidential</option>
+            </select>
+
+            <input name="number-of-people" type="number" step="1" min="1" max="6" placeholder="1 men"
+                onkeydown="return false">
+
+            <input name="keyword" type="text" placeholder="type anything" maxlength="20">
+
+            <input name="min-price" type="number" step="1" min="0" placeholder="min price">
+            <input name="max-price" type="number" step="1" min="0" placeholder="max price">
+        </span>
+    </form>
+    <main>
+        <span>
+            <h1>Block</h1>
+        </span>
+    </main>
+</body>
+
+</html>
