@@ -1,12 +1,12 @@
-.login {
-    display: none;
+.room-view {
+    display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
     font-family: "Fondamento", cursive;
 }
 
-.login-background {
+.room-view-background {
     position: fixed; 
     left: 0;
     top: 0;
@@ -17,22 +17,23 @@
     backdrop-filter: blur(10px);
 }
 
-form[name="login-form"] {
+form[name="room-view-form"] {
     position: fixed; 
-    top: 20vh;
+    top: 5vh;
     background-color: rgb(230, 230, 230);
     text-align: center;
     width: 30vw;
-    height: 60vh;
+    height: 90vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 20px 2px rgb(20, 20, 20);
+    overflow: hidden;
 }
 
-.login-form button {
+.room-view-form .close {
     background: none;
     border: none;
     font-size: 150%;
@@ -42,30 +43,28 @@ form[name="login-form"] {
     position: absolute;
 }
 
-.login-form h1 {
-    font-size: 250%;
+.room-view .images {
+    width: 100%;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    display: flex;
 }
 
-.login-form label {
-    margin-top: 1vw;
-    font-size: 120%;
+.room-view .type {
+    font-size: 150%;
+    margin-top: -3vh;
 }
 
-.login-form input {
-    background-color: rgb(230, 230, 230);
-    border-radius: 10px;
-    padding: 5px;
-    font-family: "Fondamento", cursive;
+.room-view .places img {
+    width: 2vw;
+    height: 2vw;
 }
 
-.login-form input[type="submit"] {
-    margin-top: 2vw;
-    cursor: pointer;
-    font-size: 100%;
-    transition: all 0.5s;
+.room-view .amenities {
+    margin-top: 2vh;
 }
 
-.login-form input[type="submit"]:hover {
-    background-color: rgb(20, 20, 20);
-    color: rgb(230, 230, 230);
+.room-view .amenities img {
+    width: 2vw;
+    height: 2vw;
 }
