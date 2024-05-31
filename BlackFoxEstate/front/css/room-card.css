@@ -1,0 +1,60 @@
+.room-card {
+    width: 50vw;
+    height: 10vw;
+    box-shadow: 0px 0px 1px 1px rgb(20, 20, 20);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    position: relative;
+    margin-top: 5vh;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s;
+    font-family: "Fondamento", cursive;
+}
+
+.room-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 0px 10px 2px rgb(20, 20, 20);
+}
+
+.room-card .thumbnail {
+    width: 10vw;
+    height: 10vw;
+    object-fit: cover;
+}
+
+.room-card .text-content {
+    display: flex;
+    flex-direction: column;
+    margin-right: 1vw;
+}
+
+.room-card .room-type {
+    font-size: 100%;
+    margin-top: -4vh;
+}   
+
+.room-card .places img {
+    width: 2vw;
+    height: 2vw;
+}
+
+.room-card .amenities img {
+    width: 2vw;
+    height: 2vw;
+}
+
+.top {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom {
+    height: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

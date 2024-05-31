@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fondamento:ital@0;1&display=swap');
 
 body {
     margin: 0;
@@ -12,7 +13,7 @@ body {
 
 header {
     position: fixed;
-    width: 97vw;
+    width: 98vw;
     z-index: 1;
 }
 
@@ -20,6 +21,7 @@ header h1 {
     text-align: right;
     font-family: "Playfair Display", serif;
     cursor: pointer;
+    font-size: 100%;
 }
 
 .start-screen {
@@ -52,7 +54,7 @@ header h1 {
 
 .start-text h1 {
     font-family: "Great Vibes";
-    font-size: 10rem;
+    font-size: 1000%;
     text-align: right;
     margin-right: 5vw;
 }
@@ -98,4 +100,12 @@ form[name="instruments-form"] {
     font-family: "Comic Neue", cursive;
     font-size: 70%;
     transition: all 0.5s;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7vh;
 }

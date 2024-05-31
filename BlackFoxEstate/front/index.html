@@ -7,14 +7,15 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/scroll.css">
+    <link rel="stylesheet" href="css/room-card.css">
     <title>Black Fox Estate</title>
 </head>
 
 <body>
-    <!-- <header>
+    <header>
         <h1 id="user-greet"></h1>
         <h1 id="login-button">Join</h1>
-    </header> -->
+    </header>
     <section class="start-screen">
         <div class="start-image">
             <img src="images/fox.png" alt="big-fox">
@@ -33,8 +34,7 @@
                 <option value="presidential">Presidential</option>
             </select>
 
-            <input name="number-of-people" type="number" step="1" min="1" max="6" placeholder="1 men"
-                onkeydown="return false">
+            <input name="places" type="number" step="1" min="1" max="6" placeholder="1 men" onkeydown="return false">
 
             <input name="keyword" type="text" placeholder="type anything" maxlength="20">
 
@@ -43,8 +43,32 @@
         </span>
     </form>
     <main>
-        <span>
-            <h1>Block</h1>
+        <span class="room-card">
+            <img class="thumbnail" src="images/example.webp" alt="">
+
+            <div class="text-content">
+                <div class="top">
+                    <div class="title">
+                        <h1 class="room-name">Modern Shelter</h1>
+                        <h1 class="room-type">Standart</h1>
+                    </div>
+
+                    <div class="places">
+                        <img src="images/user.png" alt="">
+                        <img src="images/user.png" alt="">
+                    </div>
+                </div>
+                
+                <div class="bottom">
+                    <div class="amenities">
+                        <img src="images/user.png" alt="">
+                        <img src="images/user.png" alt="">
+                        <img src="images/user.png" alt="">
+                    </div>
+
+                    <h1 class="price">20$</h1>
+                </div>
+            </div>
         </span>
     </main>
 </body>
