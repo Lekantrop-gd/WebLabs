@@ -1,5 +1,6 @@
 .room-edit {
-    display: flex;
+    opacity: 0;
+    display: none;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
