@@ -1,5 +1,6 @@
 .room-view {
-    display: flex;
+    opacity: 0;
+    display: none;
     align-items: center;
     justify-content: center;
     transition: all 0.5s;
@@ -7,7 +8,7 @@
 }
 
 .room-view-background {
-    position: fixed; 
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -18,7 +19,7 @@
 }
 
 form[name="room-view-form"] {
-    position: fixed; 
+    position: fixed;
     top: 5vh;
     background-color: rgb(230, 230, 230);
     text-align: center;
