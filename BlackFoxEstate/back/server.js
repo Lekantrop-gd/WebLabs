@@ -11,6 +11,7 @@ const PORT = 3000;
 
 mongoose.connect(mongoURL);
 app.use(express.static('../front'));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(logger);
 app.use('/room', roomRoutes);

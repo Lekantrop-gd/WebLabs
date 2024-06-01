@@ -1,7 +1,7 @@
 function renderCard(room) {
     var card = document.createElement('span');
     card.className = 'room-card';
-    card.setAttribute('onclick', `showView(${room._id})`);
+    card.setAttribute('onclick', `showView('${room._id}')`);
 
     var thumbnail = document.createElement('img');
     thumbnail.className = 'thumbnail';
@@ -23,7 +23,7 @@ function renderCard(room) {
 
     var roomName = document.createElement('h1');
     roomName.className = 'room-name';
-    roomName.textContent = room.name;
+    roomName.textContent = room.title;
     title.appendChild(roomName);
 
     var roomType = document.createElement('h1');
@@ -52,7 +52,7 @@ function renderCard(room) {
 
     room.amenities.forEach(function(amenity) {
         var amenityImg = document.createElement('img');
-        amenityImg.src = amenity + ".png";
+        amenityImg.src = "../images/" + amenity + ".png";
         amenityImg.alt = amenity;
         amenities.appendChild(amenityImg);
     });

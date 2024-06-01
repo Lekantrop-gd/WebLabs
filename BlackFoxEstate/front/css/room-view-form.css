@@ -67,6 +67,7 @@ form[name="room-view-form"] {
 .room-view .amenities img {
     width: 2vw;
     height: 2vw;
+    margin-left: 10px;
 }
 
 #edit {

@@ -43,6 +43,7 @@
 .room-card .amenities img {
     width: 2vw;
     height: 2vw;
+    margin-left: 10px;
 }
 
 .room-card .top {

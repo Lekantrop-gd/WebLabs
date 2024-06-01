@@ -18,6 +18,7 @@
     <script src="js/edit-form.js"></script>
     <script src="js/login-form.js"></script>
     <script src="js/view-form.js"></script>
+    <script src="js/room-manager.js"></script>
     <title>Black Fox Estate</title>
 </head>
 
@@ -54,68 +55,29 @@
             <input name="max-price" type="number" step="1" min="0" placeholder="max price">
         </span>
     </form>
-    <button onclick="showEdit()" class="create-room">+</button>
+    <button onclick="createRoom()" id="create-room" class="create-room">+</button>
 
-    <main>
-        <span onclick="showView()" class="room-card">
-            <img class="thumbnail" src="images/example.webp" alt="">
-
-            <div class="text-content">
-                <div class="top">
-                    <div class="title">
-                        <h1 class="room-name">Modern Shelter</h1>
-                        <h1 class="room-type">Standart</h1>
-                    </div>
-
-                    <div class="places">
-                        <img src="images/user.png" alt="">
-                        <img src="images/user.png" alt="">
-                    </div>
-                </div>
-
-                <div class="bottom">
-                    <div class="amenities">
-                        <img src="images/user.png" alt="">
-                        <img src="images/user.png" alt="">
-                        <img src="images/user.png" alt="">
-                    </div>
-
-                    <h1 class="price">200$</h1>
-                </div>
-            </div>
-        </span>
-    </main>
+    <main id="rooms-container"></main>
 
     <span id="room-view" class="room-view">
         <div onclick="hideView()" class="room-view-background"></div>
         <form class="room-view-form" name="room-view-form">
             <button onclick="hideView()" class="close">×</button>
 
-            <div name="images" class="images">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-            </div>
+            <div id="view-images" name="images" class="images"></div>
 
-            <h1 class="title">Modern Shelter</h1>
-            <h1 class="type">Standart</h1>
+            <h1 id="view-title" class="title"></h1>
+            
+            <h1 id="view-type" class="type"></h1>
+            
+            <div id="view-places" class="places"></div>
+            
+            <div id="view-amenities" class="amenities"></div>
 
-            <div class="places">
-                <img src="images/user.png" alt="">
-                <img src="images/user.png" alt="">
-            </div>
-
-            <div class="amenities">
-                <img src="images/user.png" alt="">
-                <img src="images/user.png" alt="">
-                <img src="images/user.png" alt="">
-            </div>
-
-            <h1 class="price">200$</h1>
-            <img onclick="showEdit()" id="edit" src="images/pencil.png" alt="Edit">
-            <img id="delete" src="images/trash-bin.png" alt="Delete">
+            <h1 id="view-price" class="price"></h1>
+            
+            <img id="edit" style="display: none;" src="images/pencil.png" alt="Edit">
+            <img id="delete" style="display: none;" src="images/trash-bin.png" alt="Delete">
         </form>
     </span>
 
@@ -125,19 +87,22 @@
             <div id="images" class="images"></div>
             
             <label class="image-text" for="files">Change images (max 5)</label>
-            <input type="file" name="images" id="files" accept="image/*" multiple max>
+            <input id="files" type="file" name="files" accept="image/*" multiple max>
         
-            <input class="title" name="title" type="text" placeholder="Room name" required>
-            <select class="type" name="type" id="type-edit" required>
+            <input id="title" class="title" name="title" type="text" placeholder="Room name" required>
+            
+            <select id="type" class="type" name="type" required>
                 <option value="standart">Standart</option>
                 <option value="family">Family</option>
                 <option value="executive">Executive</option>
                 <option value="presidential">Presidential</option>
             </select>
-            <input class="places" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" required>
-            <input class="price" name="price" type="number" step="1" min="0" placeholder="Price" required>
+            
+            <input id="places" class="places" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" required>
+            
+            <input id="price" class="price" name="price" type="number" step="1" min="0" placeholder="Price" required>
         
-            <div class="amenities">
+            <div id="amenities" class="amenities">
                 <div>
                     <input type="checkbox" id="wifi" name="amenities" value="wifi" />
                     <label for="wifi"><img src="images/wifi.png" alt="WiFi"></label>
@@ -170,7 +135,7 @@
 
     <div id="login" class="login">
         <div onclick="hideLogin()" class="login-background"></div>
-        <form method="POST" class="login-form" name="login-form">
+        <form class="login-form" name="login-form">
             <button onclick="hideLogin()">×</button>
 
             <h1>Log in</h1>
@@ -184,6 +149,8 @@
             <input type="submit">
         </form>
     </div>
+
+    <h1>test</h1>
 </body>
 
 </html>
