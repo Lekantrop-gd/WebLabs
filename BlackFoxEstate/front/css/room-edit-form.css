@@ -50,10 +50,19 @@ form[name="room-edit-form"] {
     display: flex;
 }
 
-.room-edit .images button {
+.room-edit .image-text {
     border: none;
-    font-size: 300%;
+    font-size: 100%;
     font-family: "Fondamento", cursive;
+    cursor: pointer;
+}
+
+#files {
+    display: none;
+}
+
+.room-edit .images input[type="file"] {
+    display: none;
 }
 
 .room-edit input,

@@ -91,7 +91,7 @@
         <form class="room-view-form" name="room-view-form">
             <button onclick="hideView()" class="close">×</button>
 
-            <div class="images">
+            <div name="images" class="images">
                 <img src="images/example.webp" alt="">
                 <img src="images/example.webp" alt="">
                 <img src="images/example.webp" alt="">
@@ -124,15 +124,15 @@
         <form class="room-edit-form" name="room-edit-form">
             <button onclick="hideEdit()" class="close">×</button>
 
-            <div class="images">
+            <div id="images" class="images">
                 <img src="images/example.webp" alt="">
                 <img src="images/example.webp" alt="">
                 <img src="images/example.webp" alt="">
                 <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-                <button>+</button>
             </div>
-
+            <label class="image-text" for="files">Change images</label>
+            <input type="file" name="files" id="files" accept="image/*" multiple>
+                
             <input class="title" type="text" placeholder="Room name">
 
             <select class="type" name="type" id="type-edit">
@@ -150,11 +150,11 @@
             <div class="amenities">
                 <div>
                     <input type="checkbox" id="wifi" name="amenities" value="wifi" />
-                    <label for="wifi"><img src="images/wi-fi.png" alt="WiFi"></label>
+                    <label for="wifi"><img src="images/wifi.png" alt="WiFi"></label>
                 </div>
                 <div>
                     <input type="checkbox" id="tv" name="amenities" value="tv" />
-                    <label for="tv"><img src="images/television.png" alt="TV"></label>
+                    <label for="tv"><img src="images/tv.png" alt="TV"></label>
                 </div>
                 <div>
                     <input type="checkbox" id="shower" name="amenities" value="shower" />
@@ -162,15 +162,15 @@
                 </div>
                 <div>
                     <input type="checkbox" id="kitchen" name="amenities" value="kitchen" />
-                    <label for="kitchen"><img src="images/cutlery.png" alt="Kitchen"></label>
+                    <label for="kitchen"><img src="images/kitchen.png" alt="Kitchen"></label>
                 </div>
                 <div>
                     <input type="checkbox" id="work-space" name="amenities" value="work-space" />
-                    <label for="work-space"><img src="images/desk.png" alt="Work Space"></label>
+                    <label for="work-space"><img src="images/work-space.png" alt="Work Space"></label>
                 </div>
                 <div>
                     <input type="checkbox" id="towels" name="amenities" value="towels" />
-                    <label for="towels"><img src="images/towel.png" alt="Towels"></label>
+                    <label for="towels"><img src="images/towels.png" alt="Towels"></label>
                 </div>
             </div>
 
