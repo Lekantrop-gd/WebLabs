@@ -121,32 +121,22 @@
 
     <span id="room-edit" class="room-edit">
         <div onclick="hideEdit()" class="room-edit-background"></div>
-        <form class="room-edit-form" name="room-edit-form">
-            <button onclick="hideEdit()" class="close">×</button>
-
-            <div id="images" class="images">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-                <img src="images/example.webp" alt="">
-            </div>
-            <label class="image-text" for="files">Change images</label>
-            <input type="file" name="files" id="files" accept="image/*" multiple>
-                
-            <input class="title" type="text" placeholder="Room name">
-
-            <select class="type" name="type" id="type-edit">
+        <form class="room-edit-form" name="room-edit-form" enctype="multipart/form-data">
+            <div id="images" class="images"></div>
+            
+            <label class="image-text" for="files">Change images (max 5)</label>
+            <input type="file" name="images" id="files" accept="image/*" multiple max>
+        
+            <input class="title" name="title" type="text" placeholder="Room name" required>
+            <select class="type" name="type" id="type-edit" required>
                 <option value="standart">Standart</option>
                 <option value="family">Family</option>
                 <option value="executive">Executive</option>
                 <option value="presidential">Presidential</option>
             </select>
-
-            <input class="places" name="places" type="number" step="1" min="1" max="6" placeholder="1 men"
-                onkeydown="return false">
-
-            <input class="price" name="price" type="number" step="1" min="0" placeholder="Price">
-
+            <input class="places" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" required>
+            <input class="price" name="price" type="number" step="1" min="0" placeholder="Price" required>
+        
             <div class="amenities">
                 <div>
                     <input type="checkbox" id="wifi" name="amenities" value="wifi" />
@@ -158,7 +148,7 @@
                 </div>
                 <div>
                     <input type="checkbox" id="shower" name="amenities" value="shower" />
-                    <label for="shower"><img src="images/shower.png" alt="Shover"></label>
+                    <label for="shower"><img src="images/shower.png" alt="Shower"></label>
                 </div>
                 <div>
                     <input type="checkbox" id="kitchen" name="amenities" value="kitchen" />
@@ -173,9 +163,9 @@
                     <label for="towels"><img src="images/towels.png" alt="Towels"></label>
                 </div>
             </div>
-
+        
             <input type="submit">
-        </form>
+        </form>        
     </span>
 
     <div id="login" class="login">

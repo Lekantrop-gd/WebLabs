@@ -1,4 +1,4 @@
-window.addEventListener("DOMContentLoaded", assignFilesListener);
+document.addEventListener('DOMContentLoaded', assignHandlers);
 
 function showEdit() {
     document.getElementById("room-edit").style.display = "flex";
@@ -13,22 +13,26 @@ function hideEdit() {
     oldElement.parentNode.replaceChild(newElement, oldElement);
 }
 
-function assignFilesListener() {
-    document.getElementById('files').addEventListener('change', function(event) {
-        const files = event.target.files;
-        const imagesContainer = document.getElementById('images');
-        imagesContainer.innerHTML = '';
+function assignHandlers() {
+    document.forms['room-edit-form'].addEventListener('submit', async function(event) {
+        event.preventDefault();
     
-        Array.from(files).forEach(file => {
-            if (file.type.startsWith('image/')) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    imagesContainer.appendChild(img);
-                };
-                reader.readAsDataURL(file);
+        const formData = new FormData(this);
+    
+        try {
+            const response = await fetch('/room', {
+                method: 'POST',
+                body: formData,
+            });
+    
+            const result = await response.json();
+            if (response.ok) {
+                console.log('Room created/updated successfully:', result);
+            } else {
+                console.error('Operation failed:', result.error);
             }
-        });
+        } catch (error) {
+            console.error('Error submitting form:', error);
+        }
     });
 }
