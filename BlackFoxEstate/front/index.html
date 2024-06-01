@@ -14,13 +14,14 @@
     <link rel="stylesheet" href="css/login-form.css">
     <link rel="stylesheet" href="css/room-view-form.css">
     <link rel="stylesheet" href="css/room-edit-form.css">
+    <script src="js/form-manager.js"></script>
     <title>Black Fox Estate</title>
 </head>
 
 <body>
     <header>
         <h1 id="user-greet"></h1>
-        <h1 id="login-button">Join</h1>
+        <h1 onclick="showLogin()" id="login-button">Join</h1>
     </header>
 
     <section class="start-screen">
@@ -50,9 +51,10 @@
             <input name="max-price" type="number" step="1" min="0" placeholder="max price">
         </span>
     </form>
+    <button onclick="showEdit()" class="create-room">+</button>
 
     <main>
-        <span class="room-card">
+        <span onclick="showView()" class="room-card">
             <img class="thumbnail" src="images/example.webp" alt="">
 
             <div class="text-content">
@@ -81,10 +83,10 @@
         </span>
     </main>
 
-    <span class="room-view">
-        <div onclick="" class="room-view-background"></div>
+    <span id="room-view" class="room-view">
+        <div onclick="hideView()" class="room-view-background"></div>
         <form class="room-view-form" name="room-view-form">
-            <button class="close">×</button>
+            <button onclick="hideView()" class="close">×</button>
 
             <div class="images">
                 <img src="images/example.webp" alt="">
@@ -109,13 +111,15 @@
             </div>
 
             <h1 class="price">200$</h1>
+            <img onclick="showEdit()" id="edit" src="images/pencil.png" alt="Edit">
+            <img id="delete" src="images/trash-bin.png" alt="Delete">
         </form>
     </span>
 
-    <span class="room-edit">
-        <div onclick="" class="room-edit-background"></div>
+    <span id="room-edit" class="room-edit">
+        <div onclick="hideEdit()" class="room-edit-background"></div>
         <form class="room-edit-form" name="room-edit-form">
-            <button class="close">×</button>
+            <button onclick="hideEdit()" class="close">×</button>
 
             <div class="images">
                 <img src="images/example.webp" alt="">
@@ -128,7 +132,7 @@
 
             <input class="title" type="text" placeholder="Room name">
 
-            <select class="type" name="room-type" id="room-type-edit">
+            <select class="type" name="type" id="type-edit">
                 <option value="standart">Standart</option>
                 <option value="family">Family</option>
                 <option value="executive">Executive</option>
@@ -171,10 +175,10 @@
         </form>
     </span>
 
-    <div class="login">
-        <div onclick="" class="login-background"></div>
-        <form class="login-form" name="login-form">
-            <button>×</button>
+    <div id="login" class="login">
+        <div onclick="hideLogin()" class="login-background"></div>
+        <form method="POST" class="login-form" name="login-form">
+            <button onclick="hideLogin()">×</button>
 
             <h1>Log in</h1>
 
