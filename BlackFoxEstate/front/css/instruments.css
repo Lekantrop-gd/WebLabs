@@ -9,6 +9,8 @@ form[name="instruments-form"] {
     font-family: "Merienda", cursive;
     font-size: 1.5rem;
     margin-top: 15vh;
+    z-index: 10;
+    background-color: rgb(230, 230, 230);
 }
 
 .instruments input {
