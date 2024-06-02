@@ -19,6 +19,7 @@
     <script src="js/login-form.js"></script>
     <script src="js/view-form.js"></script>
     <script src="js/room-manager.js"></script>
+    <script src="js/instruments.js"></script>
     <title>Black Fox Estate</title>
 </head>
 
@@ -40,19 +41,23 @@
     <form name="instruments-form">
         <h1>Find your best burrow</h1>
         <span class="instruments">
-            <select name="room-type" id="room-type">
+            <select id="type-filter" name="type-filter">
+                <option value="all-types">All Types</option>
                 <option value="standart">Standart</option>
                 <option value="family">Family</option>
                 <option value="executive">Executive</option>
                 <option value="presidential">Presidential</option>
             </select>
 
-            <input name="places" type="number" step="1" min="1" max="6" placeholder="1 men" onkeydown="return false">
+            <input id="places-filter" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" onkeydown="return false">
 
-            <input name="keyword" type="text" placeholder="type anything" maxlength="20">
+            <input id="key-word-filter" name="keyword" type="text" placeholder="type anything" maxlength="20">
 
-            <input name="min-price" type="number" step="1" min="0" placeholder="min price">
-            <input name="max-price" type="number" step="1" min="0" placeholder="max price">
+            <select id="price-sort-filter" name="price-sort-filter">
+                <option value="none">Sort by Price</option>
+                <option value="price-ascending">Affordable First</option>
+                <option value="price-descending">Expensive First</option>
+            </select>
         </span>
     </form>
     <button onclick="createRoom()" id="create-room" class="create-room">+</button>

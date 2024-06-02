@@ -5,12 +5,7 @@ async function fetchRooms() {
     const data = await response.json();
     
     refreshRooms(data);
-}
-
-async function refreshRooms(rooms) {
-    var roomsContainer = document.getElementById('rooms-container');
-    roomsContainer.innerHTML = "";
-
+    
     var isAdmin = false;
     const user = localStorage.getItem("user");
     if (user) {
@@ -20,11 +15,16 @@ async function refreshRooms(rooms) {
                 'Content-Type': 'application/json'
             }
         });
-
+    
         isAdmin = await response.json();
     }
+    
+    document.getElementById('create-room').style.display = isAdmin ? "block" : "none";
+}
 
-    //document.getElementById('create-room').style.display = isAdmin ? "block" : "none";
+async function refreshRooms(rooms) {
+    var roomsContainer = document.getElementById('rooms-container');
+    roomsContainer.innerHTML = "";
 
     rooms.forEach(async function (room) {
         roomsContainer.appendChild(renderCard(room));
