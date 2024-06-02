@@ -1,10 +1,14 @@
 function showEdit() {
     document.getElementById("room-edit").style.display = "flex";
+    assignFilesChanger();
 }
 
 function hideEdit() {
     document.getElementById("room-edit").style.display = "none";
+    
     document.forms["room-edit-form"].reset();
+    var imagesContainer = document.getElementById('images');
+    imagesContainer.innerHTML = "";
 
     var oldElement = document.forms["room-edit-form"];
     var newElement = oldElement.cloneNode(true);
@@ -51,7 +55,7 @@ async function updateRoom(room) {
     const data = await response.json();
 
     fillEdit(data);
-    document.getElementById("room-edit").style.display = "flex";
+    showEdit();
 
     document.forms['room-edit-form'].addEventListener('submit', async function(event) {
         event.preventDefault();
@@ -66,7 +70,7 @@ async function updateRoom(room) {
     
             const result = await response.json();
             if (response.ok) {
-                console.log('Room updated successfully:', result);
+                console.log('Room updated successfully!');
             } else {
                 console.error('Operation failed:', result.error);
             }
@@ -74,6 +78,7 @@ async function updateRoom(room) {
             console.error('Error submitting form:', error);
         }
 
+        hideView();
         hideEdit();
         fetchRooms();
     });
@@ -97,7 +102,34 @@ function fillEdit(room) {
 
     document.getElementById('price').value = room.price;
 
-    document.getElementById('amenities').value = room.amenities;
+    room.amenities.forEach(amenity => {
+        const checkbox = document.querySelector(`input[type="checkbox"][value="${amenity}"]`);
+        
+        if (checkbox) {
+            checkbox.checked = true;
+        }
+    });
 
     document.getElementById("room-edit").style.display = "flex";
+}
+
+function assignFilesChanger() {
+    document.getElementById('files').addEventListener('change', function(event) {
+        console.log(123);
+        const files = event.target.files;
+        const imagesContainer = document.getElementById('images');
+        imagesContainer.innerHTML = '';
+    
+        Array.from(files).forEach(file => {
+            if (file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    imagesContainer.appendChild(img);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    });
 }
