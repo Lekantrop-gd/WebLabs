@@ -4,6 +4,7 @@
     justify-content: center;
     transition: all 0.5s;
     font-family: "Fondamento", cursive;
+    z-index: 12;
 }
 
 .login-background {
