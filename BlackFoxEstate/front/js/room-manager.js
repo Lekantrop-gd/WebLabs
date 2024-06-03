@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function fetchRooms(page) {
-    const limit = 1;
+    const limit = 5;
 
     const typeFilter = document.getElementById('type-filter');
     const placesFilter = document.getElementById('places-filter');
