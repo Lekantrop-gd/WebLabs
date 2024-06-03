@@ -39,7 +39,7 @@ function createRoom() {
             console.error('Error submitting form:', error);
         }
 
-        fetchRooms();
+        location.reload();
         hideEdit();
     });
 }
@@ -78,7 +78,7 @@ async function updateRoom(room) {
             console.error('Error submitting form:', error);
         }
         
-        fetchRooms();
+        location.reload();
         hideView();
         hideEdit();
     });
@@ -115,7 +115,6 @@ function fillEdit(room) {
 
 function assignFilesChanger() {
     document.getElementById('files').addEventListener('change', function(event) {
-        console.log(123);
         const files = event.target.files;
         const imagesContainer = document.getElementById('images');
         imagesContainer.innerHTML = '';
