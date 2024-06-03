@@ -41,7 +41,7 @@ async function displayRoom(id) {
 function fillView(room, isAdmin) {
     var images = document.getElementById('view-images');
     images.innerHTML = '';
-    room.images.forEach(function(image) {
+    room.images.forEach(function (image) {
         var roomImg = document.createElement('img');
         roomImg.src = image;
         roomImg.alt = 'Room image couldn\'t load';
@@ -50,7 +50,7 @@ function fillView(room, isAdmin) {
 
     document.getElementById('view-title').textContent = room.title;
     document.getElementById('view-type').textContent = room.type;
-    
+
     document.getElementById('view-places').innerHTML = '';
     for (var x = 0; x < room.places; x++) {
         var placeImage = document.createElement('img');
@@ -60,7 +60,7 @@ function fillView(room, isAdmin) {
     }
 
     document.getElementById('view-amenities').innerHTML = '';
-    room.amenities.forEach(function(amenity) {
+    room.amenities.forEach(function (amenity) {
         var amenityImage = document.createElement('img');
         amenityImage.src = '../images/' + amenity + '.png';
         amenityImage.alt = amenity;
@@ -70,10 +70,10 @@ function fillView(room, isAdmin) {
     document.getElementById('view-price').textContent = room.price + '$/night';
 
     if (isAdmin) {
-        document.getElementById('edit').setAttribute('onclick', `updateRoom('${ room._id }')`);
+        document.getElementById('edit').setAttribute('onclick', `updateRoom('${room._id}')`);
         document.getElementById('edit').style.display = 'block';
 
-        document.getElementById('delete').setAttribute('onclick', `deleteRoom('${ room._id }')`);
+        document.getElementById('delete').setAttribute('onclick', `deleteRoom('${room._id}')`);
         document.getElementById('delete').style.display = 'block';
     }
 

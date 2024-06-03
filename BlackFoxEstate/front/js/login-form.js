@@ -28,7 +28,7 @@ function login() {
 
     document.forms['login-form'].addEventListener('submit', async function (event) {
         event.preventDefault();
-    
+
         const user = getUser();
         const response = await fetch('/login', {
             method: 'POST',

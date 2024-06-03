@@ -1,6 +1,6 @@
 let currentFetchController = null;
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('type-filter').onchange = handleFiltersChange;
     document.getElementById('places-filter').onchange = handleFiltersChange;
     document.getElementById('key-word-filter').oninput = handleFiltersChange;

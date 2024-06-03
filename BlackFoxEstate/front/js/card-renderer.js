@@ -50,7 +50,7 @@ function renderCard(room) {
     amenities.className = 'amenities';
     bottom.appendChild(amenities);
 
-    room.amenities.forEach(function(amenity) {
+    room.amenities.forEach(function (amenity) {
         var amenityImg = document.createElement('img');
         amenityImg.src = '../images/' + amenity + ".png";
         amenityImg.alt = amenity;

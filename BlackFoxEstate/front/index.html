@@ -48,10 +48,11 @@
                 <option value="presidential">Presidential</option>
             </select>
 
-            <input id="places-filter" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" onkeydown="return false">
+            <input id="places-filter" name="places" type="number" step="1" min="1" max="6" placeholder="1 men"
+                onkeydown="return false">
 
             <input id="key-word-filter" name="keyword" type="text" placeholder="type anything" maxlength="20">
-            
+
             <select id="price-sort-filter" name="price-sort-filter">
                 <option value="none">Do not sort</option>
                 <option value="price-ascending">Affordable First</option>
@@ -60,7 +61,7 @@
         </span>
     </form>
     <button onclick="createRoom()" id="create-room" class="create-room">+</button>
-    
+
     <main id="rooms-container"></main>
     <div id="pagination-container"></div>
     <a id="back" href="#start-screen">^</a>
@@ -73,15 +74,15 @@
             <div id="view-images" name="images" class="images"></div>
 
             <h1 id="view-title" class="title"></h1>
-            
+
             <h1 id="view-type" class="type"></h1>
-            
+
             <div id="view-places" class="places"></div>
-            
+
             <div id="view-amenities" class="amenities"></div>
 
             <h1 id="view-price" class="price"></h1>
-            
+
             <img id="edit" style="display: none;" src="images/pencil.png" alt="Edit">
             <img id="delete" style="display: none;" src="images/trash-bin.png" alt="Delete">
         </form>
@@ -91,23 +92,24 @@
         <div onclick="hideEdit()" class="room-edit-background"></div>
         <form class="room-edit-form" name="room-edit-form" enctype="multipart/form-data">
             <div id="images" class="images"></div>
-            
+
             <label class="image-text" for="files">Change images (max 5)</label>
             <input id="files" type="file" name="files" accept=".jpeg, .jpg, .png, .gif" multiple maxlength="5">
-        
+
             <input id="title" class="title" name="title" type="text" placeholder="Room name" required>
-            
+
             <select id="type" class="type" name="type" required>
                 <option value="standart">Standart</option>
                 <option value="family">Family</option>
                 <option value="executive">Executive</option>
                 <option value="presidential">Presidential</option>
             </select>
-            
-            <input id="places" class="places" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" required>
-            
+
+            <input id="places" class="places" name="places" type="number" step="1" min="1" max="6" placeholder="1 men"
+                required>
+
             <input id="price" class="price" name="price" type="number" step="1" min="0" placeholder="Price" required>
-        
+
             <div id="amenities" class="amenities">
                 <div>
                     <input type="checkbox" id="wifi" name="amenities" value="wifi" />
@@ -134,9 +136,9 @@
                     <label for="towels"><img src="images/towels.png" alt="Towels"></label>
                 </div>
             </div>
-        
+
             <input type="submit">
-        </form>        
+        </form>
     </span>
 
     <div id="login" class="login">

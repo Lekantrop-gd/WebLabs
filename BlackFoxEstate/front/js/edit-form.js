@@ -5,7 +5,7 @@ function showEdit() {
 
 function hideEdit() {
     document.getElementById('room-edit').style.display = 'none';
-    
+
     document.forms['room-edit-form'].reset();
     var imagesContainer = document.getElementById('images');
     imagesContainer.innerHTML = '';
@@ -18,21 +18,21 @@ function hideEdit() {
 function createRoom() {
     showEdit();
 
-    document.forms['room-edit-form'].addEventListener('submit', async function(event) {
+    document.forms['room-edit-form'].addEventListener('submit', async function (event) {
         event.preventDefault();
-    
+
         if (document.forms['room-edit-form']['files'].files.length > 5) {
             alert('No more than 5 images!');
             return;
         }
         const formData = new FormData(this);
-    
+
         try {
             const response = await fetch('/room/create', {
                 method: 'POST',
                 body: formData,
             });
-    
+
             const result = await response.json();
             if (response.ok) {
                 console.log('Room created successfully:', result);
@@ -55,23 +55,23 @@ async function updateRoom(room) {
             'Content-Type': 'application/json'
         }
     });
-    
+
     const data = await response.json();
 
     fillEdit(data);
     showEdit();
 
-    document.forms['room-edit-form'].addEventListener('submit', async function(event) {
+    document.forms['room-edit-form'].addEventListener('submit', async function (event) {
         event.preventDefault();
-    
+
         const formData = new FormData(this);
-    
+
         try {
-            const response = await fetch(`/room/update/${ data._id }`, {
+            const response = await fetch(`/room/update/${data._id}`, {
                 method: 'PUT',
                 body: formData,
             });
-    
+
             const result = await response.json();
             if (response.ok) {
                 console.log('Room updated successfully!');
@@ -81,7 +81,7 @@ async function updateRoom(room) {
         } catch (error) {
             console.error('Error submitting form:', error);
         }
-        
+
         fetchRooms();
         hideView();
         hideEdit();
@@ -91,7 +91,7 @@ async function updateRoom(room) {
 function fillEdit(room) {
     var imagesContainer = document.getElementById('images');
     imagesContainer.innerHTML = '';
-    room.images.forEach(function(image) {
+    room.images.forEach(function (image) {
         var roomImg = document.createElement('img');
         roomImg.src = image;
         roomImg.alt = 'Room image couldn\'t load';
@@ -101,14 +101,14 @@ function fillEdit(room) {
     document.getElementById('title').value = room.title;
 
     document.getElementById('type').value = room.type;
-    
+
     document.getElementById('places').value = room.places;
 
     document.getElementById('price').value = room.price;
 
     room.amenities.forEach(amenity => {
         const checkbox = document.querySelector(`input[type='checkbox'][value='${amenity}']`);
-        
+
         if (checkbox) {
             checkbox.checked = true;
         }
@@ -118,15 +118,15 @@ function fillEdit(room) {
 }
 
 function assignFilesChanger() {
-    document.getElementById('files').addEventListener('change', function(event) {
+    document.getElementById('files').addEventListener('change', function (event) {
         const files = event.target.files;
         const imagesContainer = document.getElementById('images');
         imagesContainer.innerHTML = '';
-    
+
         Array.from(files).forEach(file => {
             if (file.type.startsWith('image/')) {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const img = document.createElement('img');
                     img.src = e.target.result;
                     imagesContainer.appendChild(img);
