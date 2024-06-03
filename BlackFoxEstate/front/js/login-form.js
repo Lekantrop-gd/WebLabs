@@ -10,3 +10,40 @@ function hideLogin() {
     var newElement = oldElement.cloneNode(true);
     oldElement.parentNode.replaceChild(newElement, oldElement);
 }
+
+function getUser() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const user = {
+        username: username,
+        password: password
+    }
+
+    return user;
+}
+
+function login() {
+    showLogin();
+
+    document.forms["login-form"].addEventListener('submit', async function (event) {
+        event.preventDefault();
+    
+        const user = getUser();
+        const response = await fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        });
+
+        if (response.ok) {
+            localStorage.setItem("user", user.username);
+            location.reload();
+            hideLogin();
+        } else {
+            alert("Something went wrong. Try again.")
+        }
+    });
+}

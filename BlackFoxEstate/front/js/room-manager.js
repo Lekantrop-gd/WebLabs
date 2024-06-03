@@ -6,6 +6,16 @@ async function fetchRooms() {
     
     refreshRooms(data);
     
+}
+
+async function refreshRooms(rooms) {
+    var roomsContainer = document.getElementById('rooms-container');
+    roomsContainer.innerHTML = "";
+    
+    rooms.forEach(async function (room) {
+        roomsContainer.appendChild(renderCard(room));
+    });
+    
     var isAdmin = false;
     const user = localStorage.getItem("user");
     if (user) {
@@ -20,13 +30,4 @@ async function fetchRooms() {
     }
     
     document.getElementById('create-room').style.display = isAdmin ? "block" : "none";
-}
-
-async function refreshRooms(rooms) {
-    var roomsContainer = document.getElementById('rooms-container');
-    roomsContainer.innerHTML = "";
-
-    rooms.forEach(async function (room) {
-        roomsContainer.appendChild(renderCard(room));
-    });
 }

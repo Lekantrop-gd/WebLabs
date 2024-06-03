@@ -69,13 +69,13 @@ function fillView(room, isAdmin) {
 
     document.getElementById('view-price').textContent = room.price + "$/night";
 
-    //if (isAdmin) {
+    if (isAdmin) {
         document.getElementById("edit").setAttribute("onclick", `updateRoom('${ room._id }')`);
         document.getElementById("edit").style.display = "block";
 
         document.getElementById("delete").setAttribute("onclick", `deleteRoom('${ room._id }')`);
         document.getElementById("delete").style.display = "block";
-    //}
+    }
 
     document.getElementById("room-view").style.display = "flex";
 }
