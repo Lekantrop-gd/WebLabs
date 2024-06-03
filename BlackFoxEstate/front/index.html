@@ -51,7 +51,7 @@
             <input id="places-filter" name="places" type="number" step="1" min="1" max="6" placeholder="1 men" onkeydown="return false">
 
             <input id="key-word-filter" name="keyword" type="text" placeholder="type anything" maxlength="20">
-
+            
             <select id="price-sort-filter" name="price-sort-filter">
                 <option value="none">Sort by Price</option>
                 <option value="price-ascending">Affordable First</option>
@@ -60,8 +60,10 @@
         </span>
     </form>
     <button onclick="createRoom()" id="create-room" class="create-room">+</button>
-
+    
     <main id="rooms-container"></main>
+    <div id="pagination-container"></div>
+    <a id="back" href="#start-screen">^</a>
 
     <span id="room-view" class="room-view">
         <div onclick="hideView()" class="room-view-background"></div>
@@ -154,7 +156,6 @@
         </form>
     </div>
 
-    <a id="back" href="#start-screen">^</a>
 </body>
 
 </html>

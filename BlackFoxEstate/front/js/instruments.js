@@ -1,6 +1,6 @@
 let currentFetchController = null;
 
-async function fetchRooms() {
+async function getRooms() {
     if (currentFetchController) {
         currentFetchController.abort();
     }
@@ -8,7 +8,7 @@ async function fetchRooms() {
     const response = await fetch('/room/list', { signal: currentFetchController.signal });
     const data = await response.json();
     currentFetchController = null;
-    return data;
+    return data.rooms;
 }
 
 function filterByType(rooms, type) {
@@ -45,7 +45,7 @@ function sortRooms(rooms, sortKey) {
 
 async function filterSearchAndSort(type, places, keyword, sortKey) {
     try {
-        const rooms = await fetchRooms();
+        const rooms = await getRooms();
         let filteredRooms = filterByType(rooms, type);
         filteredRooms = filterByPlaces(filteredRooms, places);
         filteredRooms = filterByKeyword(filteredRooms, keyword);

@@ -39,7 +39,7 @@ function createRoom() {
             console.error('Error submitting form:', error);
         }
 
-        location.reload();
+        fetchRooms();
         hideEdit();
     });
 }
@@ -78,7 +78,7 @@ async function updateRoom(room) {
             console.error('Error submitting form:', error);
         }
         
-        location.reload();
+        fetchRooms();
         hideView();
         hideEdit();
     });

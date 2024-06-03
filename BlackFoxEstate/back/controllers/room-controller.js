@@ -27,8 +27,18 @@ exports.getRoom = async (req, res) => {
 
 exports.listRooms = async (req, res) => {
     try {
-        const rooms = await Room.find();
-        res.json(rooms);
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page - 1) * limit;
+
+        const rooms = await Room.find().skip(skip).limit(limit);
+        const totalRooms = await Room.countDocuments();
+
+        res.json({
+            rooms,
+            totalPages: Math.ceil(totalRooms / limit),
+            currentPage: page,
+        });
     } catch (err) {
         res.status(500).json({ error: 'Failed to fetch rooms' });
     }
