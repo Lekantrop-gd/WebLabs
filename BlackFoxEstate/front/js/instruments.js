@@ -1,5 +1,12 @@
 let currentFetchController = null;
 
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('type-filter').onchange = handleFiltersChange;
+    document.getElementById('places-filter').onchange = handleFiltersChange;
+    document.getElementById('key-word-filter').oninput = handleFiltersChange;
+    document.getElementById('price-sort-filter').onchange = handleFiltersChange;
+});
+
 async function getRooms() {
     if (currentFetchController) {
         currentFetchController.abort();
@@ -59,17 +66,5 @@ async function filterSearchAndSort(type, places, keyword, sortKey) {
 }
 
 function handleFiltersChange() {
-    const selectedType = document.getElementById('type-filter').value;
-    const selectedPlaces = document.getElementById('places-filter').value;
-    const searchTerm = document.getElementById('key-word-filter').value;
-    const sortKey = document.getElementById('price-sort-filter').value;
-
-    filterSearchAndSort(selectedType, selectedPlaces, searchTerm, sortKey);
+    fetchRooms(1);
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('type-filter').onchange = handleFiltersChange;
-    document.getElementById('places-filter').onchange = handleFiltersChange;
-    document.getElementById('key-word-filter').oninput = handleFiltersChange;
-    document.getElementById('price-sort-filter').onchange = handleFiltersChange;
-});

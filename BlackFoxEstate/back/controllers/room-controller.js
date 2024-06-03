@@ -31,8 +31,36 @@ exports.listRooms = async (req, res) => {
         const limit = parseInt(req.query.limit) || 10;
         const skip = (page - 1) * limit;
 
-        const rooms = await Room.find().skip(skip).limit(limit);
-        const totalRooms = await Room.countDocuments();
+        const { type, places, keyword, sort } = req.query;
+
+        let query = {};
+
+        if (type && type !== 'all-types') {
+            query.type = type;
+        }
+
+        if (places) {
+            query.places = { $gte: parseInt(places) };
+        }
+
+        if (keyword) {
+            const lowercasedKeyword = keyword.toLowerCase();
+            query.$or = [
+                { title: { $regex: lowercasedKeyword, $options: 'i' } },
+                { amenities: { $regex: lowercasedKeyword, $options: 'i' } }
+            ];
+        }
+
+        let roomsQuery = Room.find(query).skip(skip).limit(limit);
+
+        if (sort === 'price-ascending') {
+            roomsQuery = roomsQuery.sort({ price: 1 });
+        } else if (sort === 'price-descending') {
+            roomsQuery = roomsQuery.sort({ price: -1 });
+        }
+
+        const rooms = await roomsQuery;
+        const totalRooms = await Room.countDocuments(query);
 
         res.json({
             rooms,
