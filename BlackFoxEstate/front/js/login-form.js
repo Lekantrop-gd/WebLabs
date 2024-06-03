@@ -1,19 +1,19 @@
 function showLogin() {
-    document.getElementById("login").style.display = "flex";
+    document.getElementById('login').style.display = 'flex';
 }
 
 function hideLogin() {
-    document.getElementById("login").style.display = "none";
-    document.forms["login-form"].reset();
+    document.getElementById('login').style.display = 'none';
+    document.forms['login-form'].reset();
 
-    var oldElement = document.forms["login-form"];
+    var oldElement = document.forms['login-form'];
     var newElement = oldElement.cloneNode(true);
     oldElement.parentNode.replaceChild(newElement, oldElement);
 }
 
 function getUser() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
     const user = {
         username: username,
@@ -26,7 +26,7 @@ function getUser() {
 function login() {
     showLogin();
 
-    document.forms["login-form"].addEventListener('submit', async function (event) {
+    document.forms['login-form'].addEventListener('submit', async function (event) {
         event.preventDefault();
     
         const user = getUser();
@@ -39,11 +39,11 @@ function login() {
         });
 
         if (response.ok) {
-            localStorage.setItem("user", user.username);
+            localStorage.setItem('user', user.username);
             location.reload();
             hideLogin();
         } else {
-            alert("Something went wrong. Try again.")
+            alert('Something went wrong. Try again.')
         }
     });
 }

@@ -1,16 +1,16 @@
 function showEdit() {
-    document.getElementById("room-edit").style.display = "flex";
+    document.getElementById('room-edit').style.display = 'flex';
     assignFilesChanger();
 }
 
 function hideEdit() {
-    document.getElementById("room-edit").style.display = "none";
+    document.getElementById('room-edit').style.display = 'none';
     
-    document.forms["room-edit-form"].reset();
+    document.forms['room-edit-form'].reset();
     var imagesContainer = document.getElementById('images');
-    imagesContainer.innerHTML = "";
+    imagesContainer.innerHTML = '';
 
-    var oldElement = document.forms["room-edit-form"];
+    var oldElement = document.forms['room-edit-form'];
     var newElement = oldElement.cloneNode(true);
     oldElement.parentNode.replaceChild(newElement, oldElement);
 }
@@ -21,6 +21,10 @@ function createRoom() {
     document.forms['room-edit-form'].addEventListener('submit', async function(event) {
         event.preventDefault();
     
+        if (document.forms['room-edit-form']['files'].files.length > 5) {
+            alert('No more than 5 images!');
+            return;
+        }
         const formData = new FormData(this);
     
         try {
@@ -86,11 +90,11 @@ async function updateRoom(room) {
 
 function fillEdit(room) {
     var imagesContainer = document.getElementById('images');
-    imagesContainer.innerHTML = "";
+    imagesContainer.innerHTML = '';
     room.images.forEach(function(image) {
         var roomImg = document.createElement('img');
         roomImg.src = image;
-        roomImg.alt = "Room image couldn't load";
+        roomImg.alt = 'Room image couldn\'t load';
         imagesContainer.appendChild(roomImg);
     });
 
@@ -103,14 +107,14 @@ function fillEdit(room) {
     document.getElementById('price').value = room.price;
 
     room.amenities.forEach(amenity => {
-        const checkbox = document.querySelector(`input[type="checkbox"][value="${amenity}"]`);
+        const checkbox = document.querySelector(`input[type='checkbox'][value='${amenity}']`);
         
         if (checkbox) {
             checkbox.checked = true;
         }
     });
 
-    document.getElementById("room-edit").style.display = "flex";
+    document.getElementById('room-edit').style.display = 'flex';
 }
 
 function assignFilesChanger() {

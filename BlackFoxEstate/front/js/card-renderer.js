@@ -37,7 +37,7 @@ function renderCard(room) {
 
     for (var x = 0; x < room.places; x++) {
         var placeImg = document.createElement('img');
-        placeImg.src = "../images/user.png";
+        placeImg.src = '../images/user.png';
         placeImg.alt = '';
         places.appendChild(placeImg);
     }
@@ -52,7 +52,7 @@ function renderCard(room) {
 
     room.amenities.forEach(function(amenity) {
         var amenityImg = document.createElement('img');
-        amenityImg.src = "../images/" + amenity + ".png";
+        amenityImg.src = '../images/' + amenity + ".png";
         amenityImg.alt = amenity;
         amenities.appendChild(amenityImg);
     });

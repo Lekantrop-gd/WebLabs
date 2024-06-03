@@ -34,20 +34,20 @@ async function setupPagination(totalPages, currentPage) {
         const pageButton = document.createElement('button');
         pageButton.textContent = i;
         pageButton.disabled = i === currentPage;
-        pageButton.setAttribute("onclick", `fetchRooms(${i})`);
+        pageButton.setAttribute('onclick', `fetchRooms(${i})`);
         paginationContainer.appendChild(pageButton);
     }
 }
 
 async function refreshRooms(rooms) {
     const roomsContainer = document.getElementById('rooms-container');
-    roomsContainer.innerHTML = "";
+    roomsContainer.innerHTML = '';
 
     rooms.forEach(room => {
         roomsContainer.appendChild(renderCard(room));
     });
 
-    const user = localStorage.getItem("user");
+    const user = localStorage.getItem('user');
     let isAdmin = false;
 
     if (user) {
@@ -65,5 +65,5 @@ async function refreshRooms(rooms) {
         }
     }
 
-    document.getElementById('create-room').style.display = isAdmin ? "block" : "none";
+    document.getElementById('create-room').style.display = isAdmin ? 'block' : 'none';
 }
