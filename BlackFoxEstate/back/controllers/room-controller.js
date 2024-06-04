@@ -57,6 +57,10 @@ exports.listRooms = async (req, res) => {
             roomsQuery = roomsQuery.sort({ price: 1 });
         } else if (sort === 'price-descending') {
             roomsQuery = roomsQuery.sort({ price: -1 });
+        } else if (sort === 'places-ascending') {
+            roomsQuery = roomsQuery.sort({ places: 1 });
+        } else if (sort === 'places-descending') {
+            roomsQuery = roomsQuery.sort({ places: -1 });
         }
 
         const rooms = await roomsQuery;

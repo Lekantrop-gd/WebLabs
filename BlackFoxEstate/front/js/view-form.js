@@ -80,12 +80,8 @@ function fillView(room, isAdmin) {
     document.getElementById('room-view').style.display = 'flex';
 }
 
-function deleteRoom(id) {
-    asyncDelete(id);
-}
-
-async function asyncDelete(id) {
-    if (confirm('Are you sure you want to delete this product?') == false) {
+async function deleteRoom(id) {
+    if (confirm('Are you sure you want to delete this room?') == false) {
         return;
     }
 
