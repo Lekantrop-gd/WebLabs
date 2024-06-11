@@ -47,3 +47,8 @@ function login() {
         }
     });
 }
+
+function unlogin() {
+    localStorage.removeItem('user', null);
+    location.reload();
+}

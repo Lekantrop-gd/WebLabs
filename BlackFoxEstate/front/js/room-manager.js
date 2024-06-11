@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchRooms(1);
+    
+    document.getElementById('login-button').style.display = localStorage.getItem('user') ? "none" : "block";
+    document.getElementById('unlogin-button').style.display = localStorage.getItem('user') ? "block" : "none";
 });
 
 async function fetchRooms(page) {
