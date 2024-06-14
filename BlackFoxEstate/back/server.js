@@ -1,13 +1,15 @@
 const express = require('express');
 const fs = require('fs');
 const mongoose = require('mongoose');
+const mongoURL = 'mongodb+srv://holodiuknazar2:P5Tqp1GLtbB0qqa8@blackfoxestate.lis2ckg.mongodb.net/';
 const roomRoutes = require('./routes/room-routes');
 const loginRoutes = require('./routes/login-routes');
 const logger = require('./middleware/logger');
 const path = require('path');
 const app = express();
+const PORT = 3000;
 
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect(mongoURL);
 app.use(express.static('../front'));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
@@ -20,6 +22,6 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../front', 'index.html'));
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on http://localhost:${process.env.PORT}`);
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
 });
