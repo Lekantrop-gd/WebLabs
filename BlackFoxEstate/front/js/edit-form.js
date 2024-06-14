@@ -25,6 +25,10 @@ function createRoom() {
             alert('No more than 5 images!');
             return;
         }
+        if (document.forms['room-edit-form']['files'].files.length < 1) {
+            alert('Add at least 1 image!');
+            return;
+        }
         const formData = new FormData(this);
 
         try {

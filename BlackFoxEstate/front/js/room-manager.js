@@ -3,7 +3,16 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.getElementById('login-button').style.display = localStorage.getItem('user') ? "none" : "block";
     document.getElementById('unlogin-button').style.display = localStorage.getItem('user') ? "block" : "none";
+
+    document.getElementById('type-filter').onchange = handleFiltersChange;
+    document.getElementById('places-filter').onchange = handleFiltersChange;
+    document.getElementById('key-word-filter').oninput = handleFiltersChange;
+    document.getElementById('price-sort-filter').onchange = handleFiltersChange;
 });
+
+function handleFiltersChange() {
+    fetchRooms(1);
+}
 
 async function fetchRooms(page) {
     const limit = 5;
